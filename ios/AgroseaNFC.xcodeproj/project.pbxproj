@@ -12,9 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8CD753B050FACF401FD77BFF /* libPods-AgroseaNFC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB1AF5C205F2DF330F0DB91 /* libPods-AgroseaNFC.a */; };
-		BD8C4632DEA113C34BD725CF /* libPods-AgroseaNFC-AgroseaNFCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5F35A4D2CA2B1ED82DEEA3 /* libPods-AgroseaNFC-AgroseaNFCTests.a */; };
 		CE0CA1092B66CDE200391946 /* CoreNFC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE0CA1012B66CD8900391946 /* CoreNFC.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0B398400F58B5B85297FF9F /* Pods_AgroseaNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FFAA14354449A16C78481E /* Pods_AgroseaNFC.framework */; };
+		F336102B1278E270EA9225B0 /* Pods_AgroseaNFC_AgroseaNFCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C05FE71745A3DDF0A014AF09 /* Pods_AgroseaNFC_AgroseaNFCTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +54,12 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AgroseaNFC/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AgroseaNFC/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AgroseaNFC/main.m; sourceTree = "<group>"; };
-		4CB1AF5C205F2DF330F0DB91 /* libPods-AgroseaNFC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgroseaNFC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AgroseaNFC/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93FFAA14354449A16C78481E /* Pods_AgroseaNFC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgroseaNFC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C05FE71745A3DDF0A014AF09 /* Pods_AgroseaNFC_AgroseaNFCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgroseaNFC_AgroseaNFCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0CA1002B66C97800391946 /* AgroseaNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = AgroseaNFC.entitlements; path = AgroseaNFC/AgroseaNFC.entitlements; sourceTree = "<group>"; };
 		CE0CA1012B66CD8900391946 /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		CE0CA1032B66CD9E00391946 /* libswiftCoreNFC.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreNFC.tbd; path = usr/lib/swift/libswiftCoreNFC.tbd; sourceTree = SDKROOT; };
-		DB5F35A4D2CA2B1ED82DEEA3 /* libPods-AgroseaNFC-AgroseaNFCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AgroseaNFC-AgroseaNFCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123F6B81BF903831A11DF4A /* Pods-AgroseaNFC-AgroseaNFCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgroseaNFC-AgroseaNFCTests.release.xcconfig"; path = "Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8C4632DEA113C34BD725CF /* libPods-AgroseaNFC-AgroseaNFCTests.a in Frameworks */,
+				F336102B1278E270EA9225B0 /* Pods_AgroseaNFC_AgroseaNFCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD753B050FACF401FD77BFF /* libPods-AgroseaNFC.a in Frameworks */,
+				F0B398400F58B5B85297FF9F /* Pods_AgroseaNFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +121,8 @@
 				CE0CA1032B66CD9E00391946 /* libswiftCoreNFC.tbd */,
 				CE0CA1012B66CD8900391946 /* CoreNFC.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4CB1AF5C205F2DF330F0DB91 /* libPods-AgroseaNFC.a */,
-				DB5F35A4D2CA2B1ED82DEEA3 /* libPods-AgroseaNFC-AgroseaNFCTests.a */,
+				93FFAA14354449A16C78481E /* Pods_AgroseaNFC.framework */,
+				C05FE71745A3DDF0A014AF09 /* Pods_AgroseaNFC_AgroseaNFCTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -595,6 +595,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -668,6 +679,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
