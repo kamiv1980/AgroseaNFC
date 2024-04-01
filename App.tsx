@@ -8,14 +8,15 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import NfcManager, {
-  NfcTech,
   Nfc15693RequestFlagIOS,
+  NfcTech,
 } from 'react-native-nfc-manager';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import {MainScreen, MemoryScreen, SettingsScreen} from './screens';
+import {MainScreen, MemoryScreen, MoreScreen} from './screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import {getControlSum} from './utils/getControlSum';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,15 +42,6 @@ function App(): React.JSX.Element | null {
     checkIsSupported();
   }, []);
 
-  // useEffect(() => {
-  //   NfcManager.setEventListener(NfcEvents.DiscoverTag, (tag) => {
-  //     console.log('tag found')
-  //   })
-  //
-  //   return () => {
-  //     NfcManager.setEventListener(NfcEvents.DiscoverTag, null);
-  //   }
-  // }, [])
 
   const readTag = async () => {
     try {
@@ -106,6 +98,8 @@ function App(): React.JSX.Element | null {
         const newBlock = blockBytes.map((el, idx) =>
           idx === 0 ? address : el,
         );
+        newBlock[3] = getControlSum(newBlock, 3);
+
         await handler.writeSingleBlock({
           flags: Nfc15693RequestFlagIOS.HighDataRate,
           blockNumber: 0,
@@ -186,14 +180,15 @@ function App(): React.JSX.Element | null {
           )}
         </Tab.Screen>
         <Tab.Screen
-          name="Settings"
+          name="More"
           options={{
-            tabBarLabel: 'Settings',
+            headerShown: false,
+            tabBarLabel: 'More',
             tabBarIcon: ({color, size}) => (
-              <Feather name="settings" color={color} size={size} />
+              <Feather name="more-horizontal" color={color} size={size} />
             ),
           }}>
-          {props => <SettingsScreen {...props} NfcManager={NfcManager} />}
+          {props => <MoreScreen {...props} />}
         </Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
