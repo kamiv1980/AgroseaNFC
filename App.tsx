@@ -98,7 +98,7 @@ function App(): React.JSX.Element | null {
         const newBlock = blockBytes.map((el, idx) =>
           idx === 0 ? address : el,
         );
-        newBlock[3] = getControlSum(newBlock, 3);
+        newBlock[3] = getControlSum(newBlock);
 
         await handler.writeSingleBlock({
           flags: Nfc15693RequestFlagIOS.HighDataRate,
