@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import NfcManager, {
@@ -16,7 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {MainScreen, MemoryScreen, MoreScreen} from './screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import {getControlSum} from './utils/getControlSum';
+import {calculateCRC32} from './utils/getControlSum';
 
 const Tab = createBottomTabNavigator();
 
@@ -60,7 +53,7 @@ function App(): React.JSX.Element | null {
 
       const blockBytes = await handler.readSingleBlock({
         flags: Nfc15693RequestFlagIOS.HighDataRate,
-        blockNumber: 0,
+        blockNumber: 5,
       });
       Array.isArray(blockBytes) && setAddress(blockBytes[0]);
     } catch (ex) {
@@ -91,19 +84,29 @@ function App(): React.JSX.Element | null {
 
       const blockBytes = await handler.readSingleBlock({
         flags: Nfc15693RequestFlagIOS.HighDataRate,
-        blockNumber: 0,
+        blockNumber: 5,
       });
 
       if (Array.isArray(blockBytes)) {
         const newBlock = blockBytes.map((el, idx) =>
           idx === 0 ? address : el,
         );
-        newBlock[3] = getControlSum(newBlock);
+        await handler.writeSingleBlock({
+          flags: Nfc15693RequestFlagIOS.HighDataRate,
+          blockNumber: 5,
+          dataBlock: newBlock,
+        });
+
+        const blockBytesForCRC = await handler.readMultipleBlocks({
+          flags: Nfc15693RequestFlagIOS.HighDataRate,
+          blockNumber: 0,
+          blockCount: 7,
+        });
 
         await handler.writeSingleBlock({
           flags: Nfc15693RequestFlagIOS.HighDataRate,
-          blockNumber: 0,
-          dataBlock: newBlock,
+          blockNumber: 7,
+          dataBlock: calculateCRC32(blockBytesForCRC.flat()),
         });
       }
       await NfcManager.setAlertMessage('Success');
