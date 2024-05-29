@@ -1,4 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { useFocusEffect } from '@react-navigation/native';
 import React from 'react';
 import {
   MenuScreen,
@@ -9,9 +10,23 @@ import {
 
 const Stack = createNativeStackNavigator();
 
-export const MoreScreen = () => {
+export const MoreScreen = ({ navigation }) => {
+  useFocusEffect(
+    React.useCallback(() => {
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Menu'}],
+      });
+    }, [navigation]),
+  );
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#f0b400',
+        },
+      }}>
       <Stack.Screen name="Menu" component={MenuScreen} />
       <Stack.Screen
         name="Settings"

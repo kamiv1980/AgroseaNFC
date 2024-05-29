@@ -6,10 +6,11 @@ import NfcManager, {
 } from 'react-native-nfc-manager';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import {MainScreen, MemoryScreen, MoreScreen} from './screens';
+import {SensorScreen, MemoryScreen, MoreScreen} from './screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import {calculateCRC32} from './utils/getControlSum';
+import {StatisticScreen} from "./screens/StatisticScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -125,27 +126,31 @@ function App(): React.JSX.Element | null {
     return null;
   }
 
-  if (!hasNfc) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.log}>
-          <Text>NFC not supported</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  // if (!hasNfc) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <View style={styles.log}>
+  //         <Text>NFC not supported</Text>
+  //       </View>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: '#e91e63',
-          // tabBarStyle: {backgroundColor: '#febe00'},
+          tabBarInactiveTintColor: '#333333',
+          tabBarStyle: {backgroundColor: '#f0b400'},
+          headerStyle: {
+            backgroundColor: '#f0b400',
+          },
         }}>
         <Tab.Screen
           name="Tag information"
           options={{
-            tabBarLabel: 'Main',
+            tabBarLabel: 'Tag',
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
                 name="transit-connection-variant"
@@ -155,7 +160,7 @@ function App(): React.JSX.Element | null {
             ),
           }}>
           {props => (
-            <MainScreen
+            <SensorScreen
               {...props}
               readTag={readTag}
               mainInfo={mainInfo}
@@ -168,7 +173,7 @@ function App(): React.JSX.Element | null {
           options={{
             tabBarLabel: 'Memory',
             tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="tools" color={color} size={size} />
+              <MaterialCommunityIcons name="memory" color={color} size={size} />
             ),
           }}>
           {props => (
@@ -179,6 +184,25 @@ function App(): React.JSX.Element | null {
               setAddress={setAddress}
               address={address}
               error={error}
+            />
+          )}
+        </Tab.Screen>
+        <Tab.Screen
+          name="Statistic"
+          options={{
+            tabBarLabel: 'Statistic',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="book-information-variant" color={color} size={size} />
+            ),
+          }}>
+          {props => (
+            <StatisticScreen
+              {...props}
+              // NfcManager={NfcManager}
+              // writeTag={writeTag}
+              // setAddress={setAddress}
+              // address={address}
+              // error={error}
             />
           )}
         </Tab.Screen>

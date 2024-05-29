@@ -10,7 +10,7 @@ const manufCode = {
   2: 'STMicroelectronics',
 };
 
-export const MainScreen = ({mainInfo, readTag, systemInfo}) => {
+export const SensorScreen = ({mainInfo, readTag, systemInfo}) => {
   return (
     <SafeAreaView style={styles.container}>
       {!mainInfo && !systemInfo && (
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#006C5B',
+    backgroundColor: '#4b4f58',
   },
   buttonText: {
     color: '#ffffff',

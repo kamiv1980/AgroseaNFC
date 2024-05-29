@@ -51,6 +51,7 @@ export const TrialCodeScreen = () => {
           />
           <Text style={styles.title}>{'Enter admin password'}</Text>
           <TextInput
+            autoCapitalize={'none'}
             style={styles.input}
             onChangeText={setPassword}
             value={password}
@@ -68,14 +69,18 @@ export const TrialCodeScreen = () => {
       {!!code && (
         <View>
           <Text style={styles.title}>Key deactivation trial</Text>
-          <Text style={styles.title}>{String(code).padStart(5, '0')}</Text>
+          <Text style={styles.title} selectable={true}>
+            {String(code).padStart(5, '0')}
+          </Text>
         </View>
       )}
 
       {!!key && (
         <View>
           <Text style={styles.title}>Key prolongation trial</Text>
-          <Text style={styles.title}>{String(key).padStart(5, '0')}</Text>
+          <Text style={styles.title} selectable={true}>
+            {String(key).padStart(5, '0')}
+          </Text>
         </View>
       )}
       <TouchableOpacity style={styles.button} onPress={handleReset}>
@@ -112,7 +117,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#006C5B',
+    backgroundColor: '#4b4f58',
   },
   buttonText: {
     color: '#ffffff',

@@ -43,7 +43,7 @@ export const MemoryScreen = ({writeTag, setAddress, address, error}) => {
           <Text style={styles.subtitle}>Сyclic recording</Text>
           <Switch
             style={styles.switch}
-            trackColor={{false: '#767577', true: '#006C5B'}}
+            trackColor={{false: '#767577', true: '#f0b400'}}
             thumbColor={'#f4f3f4'}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     fontWeight: 700,
-    color: '#483d8b',
   },
   text: {
     fontSize: 20,
@@ -109,7 +108,7 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#483d8b',
+    borderColor: '#4b4f58',
     width: 100,
   },
   buttonWrite: {
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#006C5B',
+    backgroundColor: '#4b4f58',
   },
   button: {
     width: 70,
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#006C5B',
+    backgroundColor: '#4b4f58',
   },
   buttonText: {
     color: '#ffffff',
