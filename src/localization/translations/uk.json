@@ -1,0 +1,103 @@
+{
+  "language": "Українська",
+  "common": {
+    "back": "Назад"
+  },
+  "screens": {
+    "tag": {
+      "title": "Загальна інформація",
+      "tabLabel": "Мітка",
+      "manufCode": "Код виробника",
+      "serialNumber": "Серійний номер",
+      "uid": "UID",
+      "compatibilityProtocol": "Протокол сумісності",
+      "systemInfo": "Системна інформація",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Розмір блоку",
+      "memorySizeBlocks": "Розмір пам'яті у блоках",
+      "memorySizeBytes": "Розмір пам'яті у байтах",
+      "icRef": "IC референс",
+      "buttonRead" : "Прочитати"
+    },
+    "sensor": {
+      "title": "Порядковий номер",
+      "tabLabel": "Датчик",
+      "buttonWrite": "Записати",
+      "newAddress": "Новий порядковий номер",
+      "cyclicRecording" : "Циклічний запис",
+      "errorTitle" : "Щось пішло не так!",
+      "errorRecord" : "Помилка запису!",
+      "noteText": "Номер датчика відповідає номеру посівного ряду."
+    },
+    "statistic": {
+      "title": "Статистика",
+      "tabLabel": "Статистика",
+      "generalInformation": "Загальна інформація",
+      "sn": "Серійний номер",
+      "field": "Поле",
+      "date": "Дата",
+      "fieldInformation": "Інформація про поле",
+      "pathKm": "Пройдена відстань (км)",
+      "areaHa": "Площа (га)",
+      "workTime": "Час роботи",
+      "speedKmh": "Швидкість (км/год)",
+      "beginOfWork": "Початок роботи",
+      "endOfWork": "Кінець роботи",
+      "speedControl": "Контроль швидкості",
+      "slowPathKm": "Повільна відстань (км)",
+      "fastPathKm": "Швидка відстань (км)",
+      "seeding": "Посів",
+      "sownHa": "Засіяно (га)",
+      "notSownHa": "Не засіяно (га)",
+      "unknownSownHa": "Невідомо засіяно (га)",
+      "fertilizing": "Удобрення",
+      "fertilizedHa": "Удобрено (га)",
+      "notFertilizedHa": "Не удобрено (га)",
+      "unknownFertilizedHa": "Невідомо удобрено (га)",
+      "weightProducts": "Вагові продукти",
+      "product": "Продукт",
+      "weight": "Вага (кг)",
+      "rateFacticalKgHa": "Фактична норма (кг/га)",
+      "rateSetupedKgHa": "Встановлена норма (кг/га)",
+      "rateLowPathKm": "Низька норма (км)",
+      "rateLowAlarmCount": "Кількість низьких тривог",
+      "rateHighPathKm": "Висока норма (км)",
+      "rateHighAlarmCount": "Кількість високих тривог",
+      "seedSensors": "Датчики посіву",
+      "seedSensorId": "ID датчика посіву",
+      "sownPct": "Засіяно (%)",
+      "notSownPct": "Не засіяно (%)",
+      "unknownSownPct": "Невідомо засіяно (%)",
+      "fertilizerSensors": "Датчики удобрення",
+      "fertilizerSensorId": "ID датчика удобрення",
+      "fertilizedPct": "Удобрено (%)",
+      "notFertilizedPct": "Не удобрено (%)",
+      "unknownFertilizedPct": "Невідомо удобрено (%)",
+      "rateLowKm": "Низька норма (км)",
+      "rateLowCount": "Кількість низьких тривог"
+    },
+    "more": {
+      "title": "Більше",
+      "tabLabel": "Більше",
+      "itemSettings": "Налаштування",
+      "itemTrial": "Отримати код активації"
+    },
+    "settings": {
+      "title": "Налаштування",
+      "itemLanguage": "Мова"
+    },
+    "trialCode": {
+      "title": "Код активації",
+      "buttonSubmit": "Підтвердити",
+      "buttonReset": "Скинути",
+      "inputTrialCode": "Введіть пробний ключ",
+      "inputPassword": "Введіть пароль адміністратора",
+      "titleKeyDeactivation": "Деактивація ключа",
+      "titleKeyProlongation": "Продовження ключа"
+    },
+    "language": {
+      "title": "Мова"
+    }
+  }
+}

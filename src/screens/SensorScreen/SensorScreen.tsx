@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 
-export const MemoryScreen = ({writeTag, setAddress, address, error}) => {
+export const SensorScreen = ({writeTag, setAddress, address, error}) => {
   const [isCyclic, setIsCyclic] = useState(false);
   const toggleSwitch = () => setIsCyclic(previousState => !previousState);
+  const {t} = useTranslation();
 
   const decreaseAddress = () => {
     setAddress(prev => --prev);
@@ -24,7 +26,7 @@ export const MemoryScreen = ({writeTag, setAddress, address, error}) => {
     <SafeAreaView style={styles.container}>
       <View>
         <View style={styles.wrapper}>
-          <Text style={styles.subtitle}>New Address</Text>
+          <Text style={styles.subtitle}>{t('screens.sensor.newAddress')}</Text>
           <View style={styles.wrapperInput}>
             <TouchableOpacity
               style={styles.button}
@@ -40,7 +42,9 @@ export const MemoryScreen = ({writeTag, setAddress, address, error}) => {
           </View>
         </View>
         <View style={styles.wrapperInput}>
-          <Text style={styles.subtitle}>Сyclic recording</Text>
+          <Text style={styles.subtitle}>
+            {t('screens.sensor.cyclicRecording')}
+          </Text>
           <Switch
             style={styles.switch}
             trackColor={{false: '#767577', true: '#f0b400'}}
@@ -51,16 +55,23 @@ export const MemoryScreen = ({writeTag, setAddress, address, error}) => {
           />
         </View>
       </View>
-      {!!error && (
-        <View style={styles.wrapper}>
-          <Text style={styles.error}>Something went wrong,</Text>
-          <Text style={styles.error}>Recording failed!</Text>
-        </View>
-      )}
+      <View style={styles.wrapper}>
+        {!!error && (
+          <>
+            <Text style={styles.error}>{t('screens.sensor.errorTitle')}</Text>
+            <Text style={styles.error}>{t('screens.sensor.errorRecord')}</Text>
+          </>
+        )}
+      </View>
+
+      <View style={styles.wrapper}>
+        <Text>* {t('screens.sensor.noteText')}</Text>
+      </View>
+
       <TouchableOpacity
         style={styles.buttonWrite}
         onPress={() => writeTag(isCyclic)}>
-        <Text style={styles.buttonText}>Write</Text>
+        <Text style={styles.buttonText}>{t('screens.sensor.buttonWrite')}</Text>
       </TouchableOpacity>
       {/*<TouchableOpacity style={styles.buttonWrite} onPress={writeTag}>*/}
       {/*  <Text style={styles.buttonText}>Cancel</Text>*/}

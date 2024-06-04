@@ -1,22 +1,18 @@
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 
-export const MenuScreen = ({navigation}) => {
+export const SettingsScreen = ({navigation}) => {
+  const {t} = useTranslation();
+
   return (
     <SafeAreaView>
       <TouchableOpacity
         style={styles.touchables}
         onPress={() => {
-          navigation.navigate('Settings');
+          navigation.navigate('Language');
         }}>
-        <Text style={styles.textStyles}>Settings</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.touchables}
-        onPress={() => {
-          navigation.navigate('Trial');
-        }}>
-        <Text style={styles.textStyles}>Get Reset code</Text>
+        <Text style={styles.textStyles}>{t('screens.settings.itemLanguage')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

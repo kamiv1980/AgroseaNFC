@@ -1,5 +1,5 @@
+export * from './TagScreen';
 export * from './SensorScreen';
-export * from './MemoryScreen';
 export * from './SettingsScreen';
 export * from './MoreScreen';
 export * from './MenuScreen';

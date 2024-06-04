@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './src/localization/i18n';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import NfcManager, {
   Nfc15693RequestFlagIOS,
@@ -6,11 +7,17 @@ import NfcManager, {
 } from 'react-native-nfc-manager';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import {SensorScreen, MemoryScreen, MoreScreen} from './screens';
+import {
+  TagScreen,
+  SensorScreen,
+  MoreScreen,
+  StatisticScreen,
+} from './src/screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import {calculateCRC32} from './utils/getControlSum';
-import {StatisticScreen} from "./screens/StatisticScreen";
+import {calculateCRC32} from './src/utils/getControlSum';
+import {useTranslation} from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +31,14 @@ function App(): React.JSX.Element | null {
   const [address, setAddress] = useState(1);
   const [error, setError] = useState('');
 
+  const {t, i18n} = useTranslation();
+
+  useEffect(() => {
+    if (!i18n.isInitialized) {
+      return; // Avoid rendering until i18n is initialized
+    }
+  }, [i18n.isInitialized]);
+
   useEffect(() => {
     const checkIsSupported = async () => {
       const deviceIsSupported = await NfcManager.isSupported();
@@ -35,7 +50,6 @@ function App(): React.JSX.Element | null {
 
     checkIsSupported();
   }, []);
-
 
   const readTag = async () => {
     try {
@@ -126,15 +140,15 @@ function App(): React.JSX.Element | null {
     return null;
   }
 
-  // if (!hasNfc) {
-  //   return (
-  //     <SafeAreaView style={styles.container}>
-  //       <View style={styles.log}>
-  //         <Text>NFC not supported</Text>
-  //       </View>
-  //     </SafeAreaView>
-  //   );
-  // }
+  if (!hasNfc) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.log}>
+          <Text>NFC not supported</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <NavigationContainer>
@@ -148,19 +162,19 @@ function App(): React.JSX.Element | null {
           },
         }}>
         <Tab.Screen
-          name="Tag information"
+          name={t('screens.tag.title')}
           options={{
-            tabBarLabel: 'Tag',
+            tabBarLabel: t('screens.tag.tabLabel'),
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
-                name="transit-connection-variant"
+                name="memory"
                 color={color}
                 size={size}
               />
             ),
           }}>
           {props => (
-            <SensorScreen
+            <TagScreen
               {...props}
               readTag={readTag}
               mainInfo={mainInfo}
@@ -169,15 +183,15 @@ function App(): React.JSX.Element | null {
           )}
         </Tab.Screen>
         <Tab.Screen
-          name="Sensor address"
+          name={t('screens.sensor.title')}
           options={{
-            tabBarLabel: 'Memory',
+            tabBarLabel: t('screens.sensor.tabLabel'),
             tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="memory" color={color} size={size} />
+              <MaterialIcons name="sensors" color={color} size={size} />
             ),
           }}>
           {props => (
-            <MemoryScreen
+            <SensorScreen
               {...props}
               NfcManager={NfcManager}
               writeTag={writeTag}
@@ -188,29 +202,24 @@ function App(): React.JSX.Element | null {
           )}
         </Tab.Screen>
         <Tab.Screen
-          name="Statistic"
+          name={t('screens.statistic.title')}
           options={{
-            tabBarLabel: 'Statistic',
+            tabBarLabel: t('screens.statistic.tabLabel'),
             tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="book-information-variant" color={color} size={size} />
+              <MaterialCommunityIcons
+                name="book-information-variant"
+                color={color}
+                size={size}
+              />
             ),
           }}>
-          {props => (
-            <StatisticScreen
-              {...props}
-              // NfcManager={NfcManager}
-              // writeTag={writeTag}
-              // setAddress={setAddress}
-              // address={address}
-              // error={error}
-            />
-          )}
+          {props => <StatisticScreen {...props} />}
         </Tab.Screen>
         <Tab.Screen
           name="More"
           options={{
             headerShown: false,
-            tabBarLabel: 'More',
+            tabBarLabel: t('screens.more.tabLabel'),
             tabBarIcon: ({color, size}) => (
               <Feather name="more-horizontal" color={color} size={size} />
             ),

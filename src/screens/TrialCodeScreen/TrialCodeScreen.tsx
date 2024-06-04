@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 
 export const TrialCodeScreen = () => {
   const [id, setId] = useState(null);
@@ -14,6 +15,7 @@ export const TrialCodeScreen = () => {
   const [code, setCode] = useState(null);
   const [key, setKey] = useState(null);
 
+  const {t} = useTranslation()
   const magicResetNumber = 43210;
   const magicNumber = 0x7d0e;
   const magicDeactivateNumber = 54321;
@@ -42,14 +44,14 @@ export const TrialCodeScreen = () => {
     <SafeAreaView style={styles.container}>
       {(!code || !key) && (
         <View>
-          <Text style={styles.title}>{'Enter trial key'}</Text>
+          <Text style={styles.title}>{t('screens.trialCode.inputTrialCode')}</Text>
           <TextInput
             style={styles.input}
             onChangeText={handleChange}
             value={id}
             keyboardType="numeric"
           />
-          <Text style={styles.title}>{'Enter admin password'}</Text>
+          <Text style={styles.title}>{t('screens.trialCode.inputPassword')}</Text>
           <TextInput
             autoCapitalize={'none'}
             style={styles.input}
@@ -62,13 +64,13 @@ export const TrialCodeScreen = () => {
             disabled={
               !id || id.toString().length !== 5 || password !== 'admin'
             }>
-            <Text style={styles.buttonText}>Submit</Text>
+            <Text style={styles.buttonText}>{t('screens.trialCode.buttonSubmit')}</Text>
           </TouchableOpacity>
         </View>
       )}
       {!!code && (
         <View>
-          <Text style={styles.title}>Key deactivation trial</Text>
+          <Text style={styles.title}>{t('screens.trialCode.titleKeyDeactivation')}</Text>
           <Text style={styles.title} selectable={true}>
             {String(code).padStart(5, '0')}
           </Text>
@@ -77,14 +79,14 @@ export const TrialCodeScreen = () => {
 
       {!!key && (
         <View>
-          <Text style={styles.title}>Key prolongation trial</Text>
+          <Text style={styles.title}>{t('screens.trialCode.titleKeyProlongation')}</Text>
           <Text style={styles.title} selectable={true}>
             {String(key).padStart(5, '0')}
           </Text>
         </View>
       )}
       <TouchableOpacity style={styles.button} onPress={handleReset}>
-        <Text style={styles.buttonText}>Reset</Text>
+        <Text style={styles.buttonText}>{t('screens.trialCode.buttonReset')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

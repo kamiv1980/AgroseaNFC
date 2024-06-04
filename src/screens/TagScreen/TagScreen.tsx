@@ -5,12 +5,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useTranslation} from "react-i18next";
 
 const manufCode = {
   2: 'STMicroelectronics',
 };
 
-export const SensorScreen = ({mainInfo, readTag, systemInfo}) => {
+export const TagScreen = ({mainInfo, readTag, systemInfo}) => {
+  const {t} = useTranslation();
+
   return (
     <SafeAreaView style={styles.container}>
       {!mainInfo && !systemInfo && (
@@ -21,62 +24,62 @@ export const SensorScreen = ({mainInfo, readTag, systemInfo}) => {
 
       {mainInfo && (
         <View style={styles.log}>
-          <Text style={styles.title}>Tag info</Text>
+          <Text style={styles.title}>{t('screens.tag.title')}</Text>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Manuf code</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.manufCode')}</Text>
             <Text style={styles.text}>
               {manufCode[mainInfo?.icManufacturerCode] || 'unknown'}
             </Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Serial Number</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.serialNumber')}</Text>
             <Text style={styles.text}>{mainInfo?.icSerialNumber}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>UID</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.uid')}</Text>
             <Text style={styles.text}>{mainInfo?.id}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Compatibility protocol</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.compatibilityProtocol')}</Text>
             <Text style={styles.text}>{mainInfo?.tech}</Text>
           </View>
         </View>
-      )}
+    )}
 
       {systemInfo && (
         <View style={styles.log}>
-          <Text style={styles.title}>System info</Text>
+          <Text style={styles.title}>{t('screens.tag.systemInfo')}</Text>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>DFSID</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.dfsid')}</Text>
             <Text style={styles.text}>{systemInfo?.dsfid}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>AFI</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.afi')}</Text>
             <Text style={styles.text}>{systemInfo?.afi}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Block Size</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.blockSize')}</Text>
             <Text style={styles.text}>{systemInfo?.blockSize}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Memory Size in blocks</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.memorySizeBlocks')}</Text>
             <Text style={styles.text}>{systemInfo?.blockCount}</Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>Memory Size in bytes</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.memorySizeBytes')}</Text>
             <Text style={styles.text}>
               {systemInfo?.blockCount * systemInfo?.blockSize}
             </Text>
           </View>
           <View style={styles.wrapper}>
-            <Text style={styles.subtitle}>IC ref</Text>
+            <Text style={styles.subtitle}>{t('screens.tag.icRef')}</Text>
             <Text style={styles.text}>{systemInfo?.icReference}</Text>
           </View>
         </View>
       )}
 
       <TouchableOpacity style={styles.buttonRead} onPress={readTag}>
-        <Text style={styles.buttonText}>Read</Text>
+        <Text style={styles.buttonText}>{t('screens.tag.buttonRead')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

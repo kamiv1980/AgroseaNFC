@@ -1,0 +1,103 @@
+{
+  "language": "English",
+  "common": {
+    "back": "Back"
+  },
+  "screens": {
+    "tag": {
+      "title": "Tag information",
+      "tabLabel" : "Tag",
+      "buttonRead" : "Read",
+      "manufCode": "Manuf code",
+      "serialNumber": "Serial Number",
+      "uid": "UID",
+      "compatibilityProtocol": "Compatibility protocol",
+      "systemInfo": "System info",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Block Size",
+      "memorySizeBlocks": "Memory Size in blocks",
+      "memorySizeBytes": "Memory Size in bytes",
+      "icRef": "IC ref"
+    },
+    "sensor": {
+      "title": "Sequence number",
+      "tabLabel" : "Sensor",
+      "buttonWrite" : "Write",
+      "newAddress" : "New sequence number",
+      "cyclicRecording" : "Cyclic recording",
+      "errorTitle" : "Something went wrong!",
+      "errorRecord" : "Recording failed!",
+      "noteText" : "The sequence number of the sensor corresponds to the number of the sowing row."
+    },
+    "statistic": {
+      "title": "Statistic",
+      "tabLabel" : "Statistic",
+      "generalInformation": "General Information",
+      "sn": "SN",
+      "field": "Field",
+      "date": "Date",
+      "fieldInformation": "Field Information",
+      "pathKm": "Path Km",
+      "areaHa": "Area Ha",
+      "workTime": "Work Time",
+      "speedKmh": "Speed Km/h",
+      "beginOfWork": "Begin Of Work",
+      "endOfWork": "End Of Work",
+      "speedControl": "Speed Control",
+      "slowPathKm": "Slow Path Km",
+      "fastPathKm": "Fast Path Km",
+      "seeding": "Seeding",
+      "sownHa": "Sown Ha",
+      "notSownHa": "Not Sown Ha",
+      "unknownSownHa": "Unknown Sown Ha",
+      "fertilizing": "Fertilizing",
+      "fertilizedHa": "Fertilized Ha",
+      "notFertilizedHa": "Not Fertilized Ha",
+      "unknownFertilizedHa": "Unknown Fertilized Ha",
+      "weightProducts": "Weight Products",
+      "product": "Product",
+      "weight": "Weight",
+      "rateFacticalKgHa": "Rate Factical Kg/Ha",
+      "rateSetupedKgHa": "Rate Setuped Kg/Ha",
+      "rateLowPathKm": "Rate Low Path Km",
+      "rateLowAlarmCount": "Rate Low Alarm Count",
+      "rateHighPathKm": "Rate High Path Km",
+      "rateHighAlarmCount": "Rate High Alarm Count",
+      "seedSensors": "Seed Sensors",
+      "seedSensorId": "Seed Sensor ID",
+      "sownPct": "Sown Percentage",
+      "notSownPct": "Not Sown Percentage",
+      "unknownSownPct": "Unknown Sown Percentage",
+      "fertilizerSensors": "Fertilizer Sensors",
+      "fertilizerSensorId": "Fertilizer Sensor ID",
+      "fertilizedPct": "Fertilized Percentage",
+      "notFertilizedPct": "Not Fertilized Percentage",
+      "unknownFertilizedPct": "Unknown Fertilized Percentage",
+      "rateLowKm": "Rate Low Km",
+      "rateLowCount": "Rate Low Count"
+    },
+    "more": {
+      "title": "More",
+      "tabLabel" : "More",
+      "itemSettings": "Settings",
+      "itemTrial": "Get reset code"
+    },
+    "settings": {
+      "title": "Settings",
+      "itemLanguage": "Language"
+    },
+    "trialCode": {
+      "title": "Reset Code",
+      "buttonSubmit" : "Submit",
+      "buttonReset" : "Reset",
+      "inputTrialCode" : "Enter trial key",
+      "inputPassword" : "Enter admin password",
+      "titleKeyDeactivation" : "Key deactivation trial",
+      "titleKeyProlongation" : "Key prolongation trial"
+    },
+    "language": {
+      "title": "Language"
+    }
+  }
+}

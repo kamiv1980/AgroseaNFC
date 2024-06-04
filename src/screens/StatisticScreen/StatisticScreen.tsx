@@ -1,8 +1,8 @@
 import {SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
-import * as RNFS from '@dr.pogodin/react-native-fs';
+// import * as RNFS from '@dr.pogodin/react-native-fs';
 // import * from '../../mock-data/mock-data.gz'
-import data from '../../mock-data/data.json';
+import data from '../../../mock-data/data.json';
 import {FieldData} from './components';
 
 export const StatisticScreen = () => {

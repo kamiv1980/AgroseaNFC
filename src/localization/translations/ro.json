@@ -1,0 +1,103 @@
+{
+  "language": "Română",
+  "common": {
+    "back": "Înapoi"
+  },
+  "screens": {
+    "tag": {
+      "title": "Informații despre etichetă",
+      "tabLabel": "Etichetă",
+      "buttonRead": "Citește",
+      "manufCode": "Cod producător",
+      "serialNumber": "Număr serial",
+      "uid": "UID",
+      "compatibilityProtocol": "Protocol de compatibilitate",
+      "systemInfo": "Informații sistem",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Dimensiune bloc",
+      "memorySizeBlocks": "Dimensiune memorie în blocuri",
+      "memorySizeBytes": "Dimensiune memorie în bytes",
+      "icRef": "IC ref"
+    },
+    "sensor": {
+      "title": "Număr de secvență",
+      "tabLabel": "Senzor",
+      "buttonWrite": "Scrie",
+      "newAddress": "Nou număr de secvență",
+      "cyclicRecording": "Înregistrare ciclică",
+      "errorTitle": "Ceva nu a mers bine!",
+      "errorRecord": "Înregistrarea a eșuat!",
+      "noteText": "Numărul de secvență al senzorului corespunde numărului rândului de semănat."
+    },
+    "statistic": {
+      "title": "Statistică",
+      "tabLabel": "Statistică",
+      "generalInformation": "Informații generale",
+      "sn": "SN",
+      "field": "Câmp",
+      "date": "Data",
+      "fieldInformation": "Informații câmp",
+      "pathKm": "Drum Km",
+      "areaHa": "Suprafață Ha",
+      "workTime": "Timp de lucru",
+      "speedKmh": "Viteză Km/h",
+      "beginOfWork": "Începutul lucrului",
+      "endOfWork": "Sfârșitul lucrului",
+      "speedControl": "Control viteză",
+      "slowPathKm": "Drum lent Km",
+      "fastPathKm": "Drum rapid Km",
+      "seeding": "Semănare",
+      "sownHa": "Semănat Ha",
+      "notSownHa": "Nesemănat Ha",
+      "unknownSownHa": "Semănat necunoscut Ha",
+      "fertilizing": "Fertilizare",
+      "fertilizedHa": "Fertilizare Ha",
+      "notFertilizedHa": "Nefertilizare Ha",
+      "unknownFertilizedHa": "Fertilizare necunoscută Ha",
+      "weightProducts": "Greutate produse",
+      "product": "Produs",
+      "weight": "Greutate",
+      "rateFacticalKgHa": "Rata factică Kg/Ha",
+      "rateSetupedKgHa": "Rata setată Kg/Ha",
+      "rateLowPathKm": "Rată mică Km",
+      "rateLowAlarmCount": "Număr alarme rată mică",
+      "rateHighPathKm": "Rată mare Km",
+      "rateHighAlarmCount": "Număr alarme rată mare",
+      "seedSensors": "Senzori semințe",
+      "seedSensorId": "ID senzor semințe",
+      "sownPct": "Procent semănat",
+      "notSownPct": "Procent nesemănat",
+      "unknownSownPct": "Procent semănat necunoscut",
+      "fertilizerSensors": "Senzori fertilizator",
+      "fertilizerSensorId": "ID senzor fertilizator",
+      "fertilizedPct": "Procent fertilizat",
+      "notFertilizedPct": "Procent nefertilizat",
+      "unknownFertilizedPct": "Procent fertilizat necunoscut",
+      "rateLowKm": "Rată mică Km",
+      "rateLowCount": "Număr rată mică"
+    },
+    "more": {
+      "title": "Mai mult",
+      "tabLabel": "Mai mult",
+      "itemSettings": "Setări",
+      "itemTrial": "Obține cod de resetare"
+    },
+    "settings": {
+      "title": "Setări",
+      "itemLanguage": "Limbă"
+    },
+    "trialCode": {
+      "title": "Cod de resetare",
+      "buttonSubmit": "Trimite",
+      "buttonReset": "Resetează",
+      "inputTrialCode": "Introduceți codul de probă",
+      "inputPassword": "Introduceți parola de administrator",
+      "titleKeyDeactivation": "Dezactivarea cheii",
+      "titleKeyProlongation": "Prelungirea cheii"
+    },
+    "language": {
+      "title": "Limbă"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "language": "Polski",
+  "common": {
+    "back": "Wróć"
+  },
+  "screens": {
+    "tag": {
+      "title": "Informacje o znaczniku",
+      "tabLabel": "Etykieta",
+      "buttonRead": "Czytaj",
+      "manufCode": "Kod producenta",
+      "serialNumber": "Numer seryjny",
+      "uid": "UID",
+      "compatibilityProtocol": "Protokół zgodności",
+      "systemInfo": "Informacje systemowe",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Rozmiar bloku",
+      "memorySizeBlocks": "Rozmiar pamięci w blokach",
+      "memorySizeBytes": "Rozmiar pamięci w bajtach",
+      "icRef": "IC ref"
+    },
+    "sensor": {
+      "title": "Numer sekwencji",
+      "tabLabel": "Czujnik",
+      "buttonWrite": "Zapisz",
+      "newAddress": "Nowy numer sekwencji",
+      "cyclicRecording": "Nagrywanie cykliczne",
+      "errorTitle": "Coś poszło nie tak!",
+      "errorRecord": "Nagrywanie nie powiodło się!",
+      "noteText": "Numer sekwencyjny czujnika odpowiada numerowi rzędu siewu."
+    },
+    "statistic": {
+      "title": "Statystyka",
+      "tabLabel": "Statystyka",
+      "generalInformation": "Informacje ogólne",
+      "sn": "SN",
+      "field": "Pole",
+      "date": "Data",
+      "fieldInformation": "Informacje o polu",
+      "pathKm": "Droga Km",
+      "areaHa": "Obszar Ha",
+      "workTime": "Czas pracy",
+      "speedKmh": "Prędkość Km/h",
+      "beginOfWork": "Początek pracy",
+      "endOfWork": "Koniec pracy",
+      "speedControl": "Kontrola prędkości",
+      "slowPathKm": "Wolna droga Km",
+      "fastPathKm": "Szybka droga Km",
+      "seeding": "Siew",
+      "sownHa": "Obsiane Ha",
+      "notSownHa": "Nieobsiane Ha",
+      "unknownSownHa": "Nieznane obsiane Ha",
+      "fertilizing": "Nawożenie",
+      "fertilizedHa": "Nawiezione Ha",
+      "notFertilizedHa": "Nienawiezione Ha",
+      "unknownFertilizedHa": "Nieznane nawiezione Ha",
+      "weightProducts": "Waga produktów",
+      "product": "Produkt",
+      "weight": "Waga",
+      "rateFacticalKgHa": "Faktyczna stawka Kg/Ha",
+      "rateSetupedKgHa": "Ustawiona stawka Kg/Ha",
+      "rateLowPathKm": "Niska stawka Km",
+      "rateLowAlarmCount": "Liczba alarmów niskiej stawki",
+      "rateHighPathKm": "Wysoka stawka Km",
+      "rateHighAlarmCount": "Liczba alarmów wysokiej stawki",
+      "seedSensors": "Czujniki nasion",
+      "seedSensorId": "ID czujnika nasion",
+      "sownPct": "Procent obsiania",
+      "notSownPct": "Procent nieobsiania",
+      "unknownSownPct": "Nieznany procent obsiania",
+      "fertilizerSensors": "Czujniki nawozu",
+      "fertilizerSensorId": "ID czujnika nawozu",
+      "fertilizedPct": "Procent nawożenia",
+      "notFertilizedPct": "Procent nienawożenia",
+      "unknownFertilizedPct": "Nieznany procent nawożenia",
+      "rateLowKm": "Niska stawka Km",
+      "rateLowCount": "Liczba niskich stawek"
+    },
+    "more": {
+      "title": "Więcej",
+      "tabLabel": "Więcej",
+      "itemSettings": "Ustawienia",
+      "itemTrial": "Uzyskaj kod resetowania"
+    },
+    "settings": {
+      "title": "Ustawienia",
+      "itemLanguage": "Język"
+    },
+    "trialCode": {
+      "title": "Kod resetowania",
+      "buttonSubmit": "Zatwierdź",
+      "buttonReset": "Resetuj",
+      "inputTrialCode": "Wprowadź klucz próbny",
+      "inputPassword": "Wprowadź hasło administratora",
+      "titleKeyDeactivation": "Dezaktywacja klucza",
+      "titleKeyProlongation": "Przedłużenie klucza"
+    },
+    "language": {
+      "title": "Język"
+    }
+  }
+}

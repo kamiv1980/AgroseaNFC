@@ -1,0 +1,103 @@
+{
+  "language": "Magyar",
+  "common": {
+    "back": "Vissza"
+  },
+  "screens": {
+    "tag": {
+      "title": "Címke információ",
+      "tabLabel": "Címke",
+      "buttonRead": "Olvas",
+      "manufCode": "Gyártói kód",
+      "serialNumber": "Sorozatszám",
+      "uid": "UID",
+      "compatibilityProtocol": "Kompatibilitási protokoll",
+      "systemInfo": "Rendszerinformáció",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Blokk méret",
+      "memorySizeBlocks": "Memória méret blokkokban",
+      "memorySizeBytes": "Memória méret bájtokban",
+      "icRef": "IC referencia"
+    },
+    "sensor": {
+      "title": "Sorozatszám",
+      "tabLabel": "Érzékelő",
+      "buttonWrite": "Írás",
+      "newAddress": "Új sorozatszám",
+      "cyclicRecording": "Ciklikus felvétel",
+      "errorTitle": "Valami hiba történt!",
+      "errorRecord": "A felvétel sikertelen!",
+      "noteText": "Az érzékelő sorszáma megfelel a vetési sor számának."
+    },
+    "statistic": {
+      "title": "Statisztika",
+      "tabLabel": "Statisztika",
+      "generalInformation": "Általános információ",
+      "sn": "SN",
+      "field": "Mező",
+      "date": "Dátum",
+      "fieldInformation": "Mező információ",
+      "pathKm": "Út Km",
+      "areaHa": "Terület Ha",
+      "workTime": "Munkaidő",
+      "speedKmh": "Sebesség Km/h",
+      "beginOfWork": "Munka kezdete",
+      "endOfWork": "Munka vége",
+      "speedControl": "Sebesség ellenőrzés",
+      "slowPathKm": "Lassú út Km",
+      "fastPathKm": "Gyors út Km",
+      "seeding": "Vetőmag",
+      "sownHa": "Vetett Ha",
+      "notSownHa": "Nem vetett Ha",
+      "unknownSownHa": "Ismeretlen vetett Ha",
+      "fertilizing": "Trágyázás",
+      "fertilizedHa": "Trágyázott Ha",
+      "notFertilizedHa": "Nem trágyázott Ha",
+      "unknownFertilizedHa": "Ismeretlen trágyázott Ha",
+      "weightProducts": "Termék súlya",
+      "product": "Termék",
+      "weight": "Súly",
+      "rateFacticalKgHa": "Tényleges arány Kg/Ha",
+      "rateSetupedKgHa": "Beállított arány Kg/Ha",
+      "rateLowPathKm": "Alacsony arány Km",
+      "rateLowAlarmCount": "Alacsony arány riasztás száma",
+      "rateHighPathKm": "Magas arány Km",
+      "rateHighAlarmCount": "Magas arány riasztás száma",
+      "seedSensors": "Vetőmag érzékelők",
+      "seedSensorId": "Vetőmag érzékelő ID",
+      "sownPct": "Vetett százalék",
+      "notSownPct": "Nem vetett százalék",
+      "unknownSownPct": "Ismeretlen vetett százalék",
+      "fertilizerSensors": "Trágya érzékelők",
+      "fertilizerSensorId": "Trágya érzékelő ID",
+      "fertilizedPct": "Trágyázott százalék",
+      "notFertilizedPct": "Nem trágyázott százalék",
+      "unknownFertilizedPct": "Ismeretlen trágyázott százalék",
+      "rateLowKm": "Alacsony arány Km",
+      "rateLowCount": "Alacsony arány száma"
+    },
+    "more": {
+      "title": "Több",
+      "tabLabel": "Több",
+      "itemSettings": "Beállítások",
+      "itemTrial": "Visszaállító kód beszerzése"
+    },
+    "settings": {
+      "title": "Beállítások",
+      "itemLanguage": "Nyelv"
+    },
+    "trialCode": {
+      "title": "Visszaállító kód",
+      "buttonSubmit": "Beküldés",
+      "buttonReset": "Visszaállítás",
+      "inputTrialCode": "Próbakulcs megadása",
+      "inputPassword": "Admin jelszó megadása",
+      "titleKeyDeactivation": "Kulcs deaktiválás próbája",
+      "titleKeyProlongation": "Kulcs meghosszabbítás próbája"
+    },
+    "language": {
+      "title": "Nyelv"
+    }
+  }
+}

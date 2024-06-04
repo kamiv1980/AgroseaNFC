@@ -1,0 +1,103 @@
+{
+  "language": "Български",
+  "common": {
+    "back": "Назад"
+  },
+  "screens": {
+    "tag": {
+      "title": "Информация за етикета",
+      "tabLabel": "Етикет",
+      "buttonRead": "Прочети",
+      "manufCode": "Код на производителя",
+      "serialNumber": "Сериен номер",
+      "uid": "UID",
+      "compatibilityProtocol": "Протокол за съвместимост",
+      "systemInfo": "Системна информация",
+      "dfsid": "DFSID",
+      "afi": "AFI",
+      "blockSize": "Размер на блока",
+      "memorySizeBlocks": "Размер на паметта в блокове",
+      "memorySizeBytes": "Размер на паметта в байтове",
+      "icRef": "IC референция"
+    },
+    "sensor": {
+      "title": "Пореден номер",
+      "tabLabel": "Сензор",
+      "buttonWrite": "Запиши",
+      "newAddress": "Нов пореден номер",
+      "cyclicRecording": "Цикличен запис",
+      "errorTitle": "Нещо се обърка!",
+      "errorRecord": "Записът не успя!",
+      "noteText": "Последователният номер на сензора съответства на номера на сеитбения ред."
+    },
+    "statistic": {
+      "title": "Статистика",
+      "tabLabel": "Статистика",
+      "generalInformation": "Обща информация",
+      "sn": "Сер. №",
+      "field": "Поле",
+      "date": "Дата",
+      "fieldInformation": "Информация за полето",
+      "pathKm": "Път в км",
+      "areaHa": "Площ в ха",
+      "workTime": "Работно време",
+      "speedKmh": "Скорост км/ч",
+      "beginOfWork": "Начало на работа",
+      "endOfWork": "Край на работа",
+      "speedControl": "Контрол на скоростта",
+      "slowPathKm": "Бавен път в км",
+      "fastPathKm": "Бърз път в км",
+      "seeding": "Сеене",
+      "sownHa": "Посеяно в ха",
+      "notSownHa": "Непосеяно в ха",
+      "unknownSownHa": "Неизвестно посеяно в ха",
+      "fertilizing": "Торене",
+      "fertilizedHa": "Наторено в ха",
+      "notFertilizedHa": "Ненаторено в ха",
+      "unknownFertilizedHa": "Неизвестно наторено в ха",
+      "weightProducts": "Тегло на продукти",
+      "product": "Продукт",
+      "weight": "Тегло",
+      "rateFacticalKgHa": "Фактическа норма кг/ха",
+      "rateSetupedKgHa": "Настроена норма кг/ха",
+      "rateLowPathKm": "Ниска норма км",
+      "rateLowAlarmCount": "Брой аларми за ниска норма",
+      "rateHighPathKm": "Висока норма км",
+      "rateHighAlarmCount": "Брой аларми за висока норма",
+      "seedSensors": "Сензори за семена",
+      "seedSensorId": "ID на сензор за семена",
+      "sownPct": "Процент посеяно",
+      "notSownPct": "Процент непосеяно",
+      "unknownSownPct": "Неизвестен процент посеяно",
+      "fertilizerSensors": "Сензори за тор",
+      "fertilizerSensorId": "ID на сензор за тор",
+      "fertilizedPct": "Процент наторено",
+      "notFertilizedPct": "Процент ненаторено",
+      "unknownFertilizedPct": "Неизвестен процент наторено",
+      "rateLowKm": "Ниска норма км",
+      "rateLowCount": "Брой за ниска норма"
+    },
+    "more": {
+      "title": "Още",
+      "tabLabel": "Още",
+      "itemSettings": "Настройки",
+      "itemTrial": "Вземи код за нулиране"
+    },
+    "settings": {
+      "title": "Настройки",
+      "itemLanguage": "Език"
+    },
+    "trialCode": {
+      "title": "Код за нулиране",
+      "buttonSubmit": "Изпрати",
+      "buttonReset": "Нулиране",
+      "inputTrialCode": "Въведете пробен ключ",
+      "inputPassword": "Въведете администраторска парола",
+      "titleKeyDeactivation": "Деактивиране на ключа",
+      "titleKeyProlongation": "Удължаване на ключа"
+    },
+    "language": {
+      "title": "Език"
+    }
+  }
+}
