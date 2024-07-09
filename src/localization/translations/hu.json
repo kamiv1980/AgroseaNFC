@@ -81,7 +81,8 @@
       "title": "Több",
       "tabLabel": "Több",
       "itemSettings": "Beállítások",
-      "itemTrial": "Visszaállító kód beszerzése"
+      "itemTrial": "Visszaállító kód beszerzése",
+      "itemAbout": "Névjegy"
     },
     "settings": {
       "title": "Beállítások",
@@ -98,6 +99,13 @@
     },
     "language": {
       "title": "Nyelv"
+    },
+    "about": {
+      "title": "Névjegy",
+      "description_1": "Ezt az alkalmazást az Agrosea GmbH fejlesztette.",
+      "description_2": "Lehetővé teszi a vetési érzékelők számozását, a vetési statisztikák olvasását és megtekintését, valamint különböző szervizelési műveletek elvégzését.",
+      "version": "Alkalmazás verziója 1.0.0",
+      "terms": "© AGROSEA - 2024. Minden jog fenntartva"
     }
   }
 }

@@ -104,9 +104,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     fontWeight: 700,
-  },
-  text: {
-    fontSize: 20,
+    color: '#4b4f58',
   },
   switch: {
     marginLeft: 20,

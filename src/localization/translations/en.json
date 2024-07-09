@@ -81,7 +81,8 @@
       "title": "More",
       "tabLabel" : "More",
       "itemSettings": "Settings",
-      "itemTrial": "Get reset code"
+      "itemTrial": "Get reset code",
+      "itemAbout": "About"
     },
     "settings": {
       "title": "Settings",
@@ -98,6 +99,13 @@
     },
     "language": {
       "title": "Language"
+    },
+    "about": {
+      "title": "About",
+      "description_1": "This application is designed by Agrosea GmbH.",
+      "description_2": "It allows you to number the sowing sensors, read and view sowing statistics and perform various service operations.",
+      "version": "App version 1.0.0",
+      "terms" : "© AGROSEA - 2024. All rights reserved"
     }
   }
 }

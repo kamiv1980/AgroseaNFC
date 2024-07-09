@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
     fontSize: 20,
+    color: '#4b4f58',
   },
   subtitle: {
     fontSize: 16,
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
+    color: '#4b4f58',
   },
   buttonWrite: {
     marginLeft: 20,

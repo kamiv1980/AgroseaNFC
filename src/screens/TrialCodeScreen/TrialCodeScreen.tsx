@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     fontSize: 20,
+    color: '#4b4f58',
   },
   input: {
     height: 50,

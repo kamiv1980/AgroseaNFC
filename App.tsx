@@ -140,15 +140,15 @@ function App(): React.JSX.Element | null {
     return null;
   }
 
-  if (!hasNfc) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.log}>
-          <Text>NFC not supported</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  // if (!hasNfc) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <View style={styles.log}>
+  //         <Text>NFC not supported</Text>
+  //       </View>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   return (
     <NavigationContainer>
@@ -161,27 +161,6 @@ function App(): React.JSX.Element | null {
             backgroundColor: '#f0b400',
           },
         }}>
-        <Tab.Screen
-          name={t('screens.tag.title')}
-          options={{
-            tabBarLabel: t('screens.tag.tabLabel'),
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons
-                name="memory"
-                color={color}
-                size={size}
-              />
-            ),
-          }}>
-          {props => (
-            <TagScreen
-              {...props}
-              readTag={readTag}
-              mainInfo={mainInfo}
-              systemInfo={systemInfo}
-            />
-          )}
-        </Tab.Screen>
         <Tab.Screen
           name={t('screens.sensor.title')}
           options={{
@@ -214,6 +193,23 @@ function App(): React.JSX.Element | null {
             ),
           }}>
           {props => <StatisticScreen {...props} />}
+        </Tab.Screen>
+        <Tab.Screen
+          name={t('screens.tag.title')}
+          options={{
+            tabBarLabel: t('screens.tag.tabLabel'),
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="memory" color={color} size={size} />
+            ),
+          }}>
+          {props => (
+            <TagScreen
+              {...props}
+              readTag={readTag}
+              mainInfo={mainInfo}
+              systemInfo={systemInfo}
+            />
+          )}
         </Tab.Screen>
         <Tab.Screen
           name="More"

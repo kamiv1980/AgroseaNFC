@@ -204,6 +204,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#4b4f58',
   },
   card: {
     padding: 8,

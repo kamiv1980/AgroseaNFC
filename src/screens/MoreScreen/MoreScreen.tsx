@@ -6,6 +6,7 @@ import {
   SettingsScreen,
   LanguageSelectScreen,
   TrialCodeScreen,
+  AboutScreen,
 } from '../../screens';
 import {useTranslation} from 'react-i18next';
 
@@ -74,6 +75,14 @@ export const MoreScreen = ({navigation}) => {
           headerBackTitle: t('screens.more.title'),
         }}
         component={TrialCodeScreen}
+      />
+      <Stack.Screen
+        name="About"
+        options={{
+          title: t('screens.about.title'),
+          headerBackTitle: t('screens.more.title'),
+        }}
+        component={AboutScreen}
       />
     </Stack.Navigator>
   );
