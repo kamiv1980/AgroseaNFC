@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './src/localization/i18n';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Platform, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import NfcManager, {
   Nfc15693RequestFlagIOS,
   NfcTech,
@@ -51,9 +51,13 @@ function App(): React.JSX.Element | null {
     checkIsSupported();
   }, []);
 
-  const readTag = async () => {
+  const readTag = () => {
+    Platform.OS === 'ios' ? readTagIOS() : readTagAndroid();
+  };
+
+  const readTagIOS = async () => {
     try {
-      // register for the NFC tag with NDEF in it
+      // register for the NFC tag with Iso15693IOS in it
       await NfcManager.requestTechnology(NfcTech.Iso15693IOS);
       // the resolved tag object will contain `ndefMessage` property
       const tag = await NfcManager.getTag();
@@ -71,15 +75,42 @@ function App(): React.JSX.Element | null {
         blockNumber: 5,
       });
       Array.isArray(blockBytes) && setAddress(blockBytes[0]);
+      await NfcManager.setAlertMessage('Tag found');
     } catch (ex) {
-      NfcManager.setAlertMessage(`Oops! ${ex}`);
+      await NfcManager.setAlertMessage(`Oops! ${ex}`);
+      setMainInfo(null);
+      setSystemInfo(null);
     } finally {
       // stop the nfc scanning
       NfcManager.cancelTechnologyRequest();
     }
   };
 
-  const writeTag = async isCyclic => {
+  const readTagAndroid = async () => {
+    try {
+
+      await NfcManager.requestTechnology(NfcTech.NfcV);
+      let tag = await NfcManager.getTag();
+      setMainInfo(tag);
+      console.log(tag);
+
+      const idBytes = tag.id.split(/(..)/g).filter(s => s);
+      idBytes.forEach((val, i, a) => a[i] = parseInt(val, 16));
+
+      let res = await NfcManager.transceive([32,32,...idBytes,0]);
+      console.log(res);
+
+    } catch (ex) {
+      await NfcManager.setAlertMessage(`Oops! ${ex}`);
+      setMainInfo(null);
+      setSystemInfo(null);
+    } finally {
+      // stop the nfc scanning
+      NfcManager.cancelTechnologyRequest();
+    }
+  };
+
+  const writeTagIOS = async isCyclic => {
     setError('');
 
     try {
@@ -127,8 +158,10 @@ function App(): React.JSX.Element | null {
       await NfcManager.setAlertMessage('Success');
       !!isCyclic && setAddress(prev => ++prev);
     } catch (ex) {
-      NfcManager.setAlertMessage(`Oops! ${ex}`);
+      await NfcManager.setAlertMessage(`Oops! ${ex}`);
       setError(ex);
+      setMainInfo(null);
+      setSystemInfo(null);
       // console.warn('Oops!', ex);
     } finally {
       // stop the nfc scanning
@@ -157,9 +190,8 @@ function App(): React.JSX.Element | null {
           tabBarActiveTintColor: '#e91e63',
           tabBarInactiveTintColor: '#333333',
           tabBarStyle: {backgroundColor: '#f0b400'},
-          headerStyle: {
-            backgroundColor: '#f0b400',
-          },
+          headerStyle: {backgroundColor: '#f0b400'},
+          headerTitleAlign: 'center',
         }}>
         <Tab.Screen
           name={t('screens.sensor.title')}
@@ -173,8 +205,11 @@ function App(): React.JSX.Element | null {
             <SensorScreen
               {...props}
               NfcManager={NfcManager}
-              writeTag={writeTag}
-              setAddress={setAddress}
+              writeTag={writeTagIOS}
+              setAddress={address => {
+                setError('');
+                setAddress(address);
+              }}
               address={address}
               error={error}
             />

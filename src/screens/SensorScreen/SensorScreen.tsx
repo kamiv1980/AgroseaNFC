@@ -1,5 +1,7 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {
+  Image,
+  PixelRatio,
   SafeAreaView,
   StyleSheet,
   Switch,
@@ -55,24 +57,32 @@ export const SensorScreen = ({writeTag, setAddress, address, error}) => {
           />
         </View>
       </View>
+
       <View style={styles.wrapper}>
-        {!!error && (
+        {!!error ? (
           <>
             <Text style={styles.error}>{t('screens.sensor.errorTitle')}</Text>
             <Text style={styles.error}>{t('screens.sensor.errorRecord')}</Text>
           </>
+        ) : (
+          <Image
+            style={styles.image}
+            source={require('../../assets/sensor.png')}
+          />
         )}
       </View>
 
       <View style={styles.wrapper}>
         <Text>* {t('screens.sensor.noteText')}</Text>
+        <TouchableOpacity
+          style={styles.buttonWrite}
+          onPress={() => writeTag(isCyclic)}>
+          <Text style={styles.buttonText}>
+            {t('screens.sensor.buttonWrite')}
+          </Text>
+        </TouchableOpacity>
       </View>
 
-      <TouchableOpacity
-        style={styles.buttonWrite}
-        onPress={() => writeTag(isCyclic)}>
-        <Text style={styles.buttonText}>{t('screens.sensor.buttonWrite')}</Text>
-      </TouchableOpacity>
       {/*<TouchableOpacity style={styles.buttonWrite} onPress={writeTag}>*/}
       {/*  <Text style={styles.buttonText}>Cancel</Text>*/}
       {/*</TouchableOpacity>*/}
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   wrapper: {
-    paddingTop: 10,
+    paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
     alignItems: 'center',
@@ -103,7 +113,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: 700,
+    fontWeight: '700',
     color: '#4b4f58',
   },
   switch: {
@@ -121,8 +131,8 @@ const styles = StyleSheet.create({
     width: 100,
   },
   buttonWrite: {
-    marginLeft: 20,
-    marginRight: 20,
+    marginTop: 20,
+    width: '100%',
     marginBottom: 20,
     height: 50,
     justifyContent: 'center',
@@ -147,5 +157,10 @@ const styles = StyleSheet.create({
   error: {
     color: '#e91e63',
     fontSize: 30,
+  },
+  image: {
+    justifyContent: 'center',
+    width: PixelRatio.getPixelSizeForLayoutSize(140),
+    height: PixelRatio.getPixelSizeForLayoutSize(70),
   },
 });

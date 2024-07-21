@@ -1,14 +1,3 @@
-export function getControlSum(pcBlock) {
-  let crc = 0xFF;
-  for (let i = 0; i < pcBlock.length; i++) {
-    crc ^= pcBlock[i];
-    for (let j = 0; j < 8; j++) {
-      crc = crc & 0x80 ? (crc << 1) ^ 0x31 : crc << 1;
-    }
-  }
-  return crc;
-}
-
 export function calculateCRC32(data) {
   const crcTable = new Uint32Array(256);
   let crc;

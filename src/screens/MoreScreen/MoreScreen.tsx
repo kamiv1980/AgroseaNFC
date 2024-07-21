@@ -43,6 +43,7 @@ export const MoreScreen = ({navigation}) => {
         headerStyle: {
           backgroundColor: '#f0b400',
         },
+        headerTitleAlign: 'center',
       }}>
       <Stack.Screen
         name="Menu"

@@ -12,8 +12,7 @@ const LANGUAGES = [
 ];
 
 export const LanguageSelectScreen = () => {
-
-  const { i18n, t } = useTranslation();
+  const {i18n} = useTranslation();
   const selectedLanguageCode = i18n.language;
 
   const setLanguage = code => {

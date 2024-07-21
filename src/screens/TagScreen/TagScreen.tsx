@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useTranslation} from "react-i18next";
+import {useTranslation} from 'react-i18next';
 
 const manufCode = {
   2: 'STMicroelectronics',
@@ -106,22 +106,12 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: '700',
     color: '#483d8b',
   },
   text: {
     fontSize: 16,
     color: '#4b4f58',
-  },
-  buttonWrite: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 20,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    backgroundColor: '#9D2235',
   },
   buttonRead: {
     marginLeft: 20,

@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  PixelRatio
 } from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
@@ -31,19 +32,21 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    padding: 10,
+    paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
     fontSize: 16,
     color: '#4b4f58',
     textAlign: 'left',
   },
   logo: {
-    width: 300,
-    height: 300,
+    width: PixelRatio.getPixelSizeForLayoutSize(140),
+    height: PixelRatio.getPixelSizeForLayoutSize(140),
     alignSelf: 'center',
   },
   term: {
     marginTop: 'auto',
     fontSize: 10,
-    padding: 10
+    padding: 10,
   },
 });

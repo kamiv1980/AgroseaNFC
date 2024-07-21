@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 20,
     fontSize: 20,
     color: '#4b4f58',
   },
