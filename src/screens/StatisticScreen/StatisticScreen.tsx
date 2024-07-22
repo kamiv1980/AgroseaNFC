@@ -17,8 +17,11 @@ export const StatisticScreen = () => {
 
   const decompressedData = useBzip2Data(nfcData);
 
-  const readStatistic = async () => {
+  const clearStatistic = () => {
     setNfcData(null);
+  };
+
+  const readStatistic = async () => {
     try {
       await NfcManager.requestTechnology(NfcTech.Ndef);
       const tag = await NfcManager.getTag();
@@ -42,15 +45,41 @@ export const StatisticScreen = () => {
     <SafeAreaView style={styles.container}>
       {!decompressedData && (
         <View style={styles.log}>
-          <Text style={styles.title}>{'Ready...'}</Text>
+          <Text style={styles.title}>
+            {t('screens.statistic.instructionTitle')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.statistic.instruction_1')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.statistic.instruction_2')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.statistic.instruction_3')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.statistic.instruction_4')}
+          </Text>
         </View>
       )}
 
       {!!decompressedData && <FieldData data={decompressedData} />}
 
-      <TouchableOpacity style={styles.buttonRead} onPress={readStatistic}>
-        <Text style={styles.buttonText}>{t('screens.tag.buttonRead')}</Text>
-      </TouchableOpacity>
+      {!nfcData && (
+        <TouchableOpacity style={styles.buttonRead} onPress={readStatistic}>
+          <Text style={styles.buttonText}>
+            {t('screens.statistic.buttonRead')}
+          </Text>
+        </TouchableOpacity>
+      )}
+
+      {!!nfcData && (
+        <TouchableOpacity style={styles.buttonRead} onPress={clearStatistic}>
+          <Text style={styles.buttonText}>
+            {t('screens.statistic.buttonClear')}
+          </Text>
+        </TouchableOpacity>
+      )}
     </SafeAreaView>
   );
 };
@@ -76,12 +105,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   title: {
-    marginTop: 20,
-    fontSize: 20,
+    marginBottom: 20,
+    fontSize: 18,
+    color: '#4b4f58',
+    fontWeight: '700',
+    alignSelf: 'center',
+  },
+  instruction: {
+    marginTop: 10,
+    fontSize: 16,
     color: '#4b4f58',
   },
   log: {
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
   },
 });

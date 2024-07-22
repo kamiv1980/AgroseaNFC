@@ -6,6 +6,7 @@ import {
   View,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
+import React from "react";
 
 const manufCode = {
   2: 'STMicroelectronics',
@@ -18,7 +19,19 @@ export const TagScreen = ({mainInfo, readTag, systemInfo}) => {
     <SafeAreaView style={styles.container}>
       {!mainInfo && !systemInfo && (
         <View style={styles.log}>
-          <Text style={styles.title}>{'Ready...'}</Text>
+          <Text style={styles.title}>{t('screens.tag.instructionTitle')}</Text>
+          <Text style={styles.instruction}>
+            {t('screens.tag.instruction_1')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.tag.instruction_2')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.tag.instruction_3')}
+          </Text>
+          <Text style={styles.instruction}>
+            {t('screens.tag.instruction_4')}
+          </Text>
         </View>
       )}
 
@@ -44,7 +57,7 @@ export const TagScreen = ({mainInfo, readTag, systemInfo}) => {
             <Text style={styles.text}>{mainInfo?.tech}</Text>
           </View>
         </View>
-    )}
+      )}
 
       {systemInfo && (
         <View style={styles.log}>
@@ -93,15 +106,20 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     paddingTop: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   title: {
-    marginTop: 20,
-    fontSize: 20,
+    fontSize: 18,
+    marginBottom: 10,
+    color: '#4b4f58',
+    fontWeight: '700',
+    alignSelf: 'center',
+  },
+  instruction: {
+    marginTop: 10,
+    fontSize: 16,
     color: '#4b4f58',
   },
   subtitle: {
@@ -129,6 +147,6 @@ const styles = StyleSheet.create({
   },
   log: {
     justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
   },
 });
