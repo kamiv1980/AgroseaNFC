@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   wrapper: {
-    paddingTop: 10,
+    paddingTop: 8,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: '#4b4f58',
     fontWeight: '700',
-    alignSelf: 'center',
   },
   instruction: {
     marginTop: 10,

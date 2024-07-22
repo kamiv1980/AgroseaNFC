@@ -87,7 +87,6 @@ export const StatisticScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   buttonRead: {
     marginTop: 'auto',
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   title: {
-    marginBottom: 20,
+    marginBottom: 10,
     fontSize: 18,
     color: '#4b4f58',
     fontWeight: '700',
