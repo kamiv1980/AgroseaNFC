@@ -7,7 +7,7 @@
     "tag": {
       "title": "Informacje o znaczniku",
       "tabLabel": "Etykieta",
-      "instructionTitle": "Aby odczytać informacje z tagu za pomocą NFC:",
+      "instructionTitle": "Aby odczytać informacje z tagu:",
       "instruction_1": "1. Włącz NFC w telefonie.",
       "instruction_2": "2. Kliknij przycisk \"Czytaj\".",
       "instruction_3": "3. Przyłóż telefon do tagu NFC na czujniku.",
@@ -40,7 +40,7 @@
       "tabLabel": "Statystyka",
       "buttonRead": "Czytaj",
       "buttonClear": "Wyczyść",
-      "instructionTitle": "Aby odczytać statystyki siewu za pomocą NFC:",
+      "instructionTitle": "Aby odczytać statystyki siewu:",
       "instruction_1": "1. Włącz NFC w telefonie.",
       "instruction_2": "2. Kliknij przycisk \"Czytaj\".",
       "instruction_3": "3. Przyłóż telefon do tagu NFC na monitorze.",

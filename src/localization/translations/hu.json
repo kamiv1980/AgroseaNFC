@@ -7,7 +7,7 @@
     "tag": {
       "title": "Címke információ",
       "tabLabel": "Címke",
-      "instructionTitle": "A címkeinformációk NFC-vel történő olvasásához:",
+      "instructionTitle": "Címke információ olvasása:",
       "instruction_1": "1. Engedélyezze az NFC-t a telefonján.",
       "instruction_2": "2. Kattintson az \"Olvasás\" gombra.",
       "instruction_3": "3. Helyezze a telefont az NFC címkéhez az érzékelőn.",
@@ -40,7 +40,7 @@
       "tabLabel": "Statisztika",
       "buttonRead": "Olvasás",
       "buttonClear": "Törlés",
-      "instructionTitle": "A vetési statisztikák NFC-vel történő olvasásához:",
+      "instructionTitle": "Vetési statisztikák olvasása:",
       "instruction_1": "1. Engedélyezze az NFC-t a telefonján.",
       "instruction_2": "2. Kattintson az \"Olvasás\" gombra.",
       "instruction_3": "3. Helyezze a telefont az NFC címkéhez a monitoron.",

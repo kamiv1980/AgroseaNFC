@@ -7,7 +7,7 @@
     "tag": {
       "title": "Informații despre etichetă",
       "tabLabel": "Etichetă",
-      "instructionTitle": "Pentru a citi informațiile etichetei folosind NFC:",
+      "instructionTitle": "Pentru a citi informațiile etichetei:",
       "instruction_1": "1. Activați NFC pe telefon.",
       "instruction_2": "2. Apăsați butonul \"Citește\".",
       "instruction_3": "3. Apropiați telefonul de eticheta NFC de pe senzor.",
@@ -40,7 +40,7 @@
       "tabLabel": "Statistică",
       "buttonRead": "Citește",
       "buttonClear": "Șterge",
-      "instructionTitle": "Pentru a citi statisticile de însămânțare folosind NFC:",
+      "instructionTitle": "Pentru a citi statisticile de însămânțare:",
       "instruction_1": "1. Activați NFC pe telefon.",
       "instruction_2": "2. Apăsați butonul \"Citește\".",
       "instruction_3": "3. Apropiați telefonul de eticheta NFC de pe monitor.",
