@@ -25,15 +25,15 @@ export const StatisticScreen = () => {
     try {
       await NfcManager.requestTechnology(NfcTech.Ndef);
       const tag = await NfcManager.getTag();
-      const data = tag?.ndefMessage?.payload;
+      const data = tag?.ndefMessage;
+      const payload = data[0]?.payload;
 
-      if (data) {
-        setNfcData(data);
+      if (payload) {
+        setNfcData(payload);
+        await NfcManager.setAlertMessage('Tag found');
       } else {
-        console.warn('No payload found in NFC tag');
+        await NfcManager.setAlertMessage('No payload found in NFC tag');
       }
-
-      await NfcManager.setAlertMessage('Tag found');
     } catch (ex) {
       await NfcManager.setAlertMessage(`Oops! ${ex}`);
     } finally {
