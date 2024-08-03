@@ -1,192 +1,151 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {
+    SectionContainer,
+    SeedingInfo,
+    Sensor,
+    TextField,
+    WeightProduct,
+    WorkWithoutCrashControl,
+} from './index';
 
 export const FieldData = ({data}) => {
   const {t} = useTranslation();
+  const seedSensors = data.SeedSensors || data.SeedSensorsGrA || [];
+  const seedSensorsGrB = data.SeedSensorsGrB || [];
+  const liquidFertilizerSensors = data.Liqferts || [];
+  const fertilizerSensors = data.FertilizerSensors || [];
+  const seedSensorsTitle = !!data.SeedSensors ? t('screens.statistic.seedSensors') : t('screens.statistic.seedSensorsGrA');
 
-  const renderWeightProducts = () => {
-    return data.WeightProducts.map((product, index) => (
-      <View key={index} style={styles.card}>
-        <Text>
-          {t('screens.statistic.product')}: {product.Product}
-        </Text>
-        <Text>
-          {t('screens.statistic.weight')}: {product.Weight} kg
-        </Text>
-        <Text>
-          {t('screens.statistic.rateFacticalKgHa')}: {product.RateFacticalKgHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.rateSetupedKgHa')}: {product.RateSetupedKgHa}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowPathKm')}: {product.RateLowPathKm}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowAlarmCount')}:{' '}
-          {product.RateLowAlarmCount}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateHighPathKm')}: {product.RateHighPathKm}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateHighAlarmCount')}:{' '}
-          {product.RateHighAlarmCount}
-        </Text>
-      </View>
-    ));
+  const renderSeeding = () => {
+    const seeding = data.Seeding || data.SeedingGrA;
+    const title = !!data.Seeding ? t('screens.statistic.seeding') : t('screens.statistic.seedingGrA')
+    return !!seeding ? (
+      <SectionContainer title={title}>
+        <SeedingInfo data={seeding} type={'seed'}/>
+      </SectionContainer>
+    ) : null;
   };
 
-  const renderSeedSensors = () => {
-    return data.SeedSensor.map((sensor, index) => (
-      <View key={index} style={styles.card}>
-        <Text>
-          {t('screens.statistic.seedSensorId')}: {sensor.id}
-        </Text>
-        <Text>
-          {t('screens.statistic.sownPct')}: {sensor.SownPct}%
-        </Text>
-        <Text>
-          {t('screens.statistic.notSownPct')}: {sensor.NotSownPct}%
-        </Text>
-        <Text>
-          {t('screens.statistic.unknownSownPct')}: {sensor.UnknownSownPct}%
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowKm')}: {sensor.RateLowKm}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowCount')}: {sensor.RateLowCount}
-        </Text>
-      </View>
-    ));
+  const renderFertilizing = () => {
+    const fertilizing = data.Fertilizing || data.SeedingGrB;
+    const title = !!data.Fertilizing ? t('screens.statistic.fertilizing') : t('screens.statistic.seedingGrB')
+    return !!fertilizing ? (
+      <SectionContainer title={title}>
+        <SeedingInfo data={fertilizing} type={'fertilizer'}/>
+      </SectionContainer>
+    ) : null;
   };
 
-  const renderFertilizerSensors = () => {
-    return data.FertilizerSensors.map((sensor, index) => (
-      <View key={index} style={styles.card}>
-        <Text>
-          {t('screens.statistic.fertilizerSensorId')}: {sensor.id}
-        </Text>
-        <Text>
-          {t('screens.statistic.fertilizedPct')}: {sensor.FertilizedPct}%
-        </Text>
-        <Text>
-          {t('screens.statistic.notFertilizedPct')}: {sensor.NotFertilizedPct}%
-        </Text>
-        <Text>
-          {t('screens.statistic.unknownFertilizedPct')}:{' '}
-          {sensor.UnknownFertilizedPct}%
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowKm')}: {sensor.RateLowKm}
-        </Text>
-        <Text style={styles.warning}>
-          {t('screens.statistic.rateLowCount')}: {sensor.RateLowCount}
-        </Text>
-      </View>
-    ));
+  const renderLiquidFertilizing = () => {
+    const liqfert = data.Liqfert;
+    return !!liqfert ? (
+      <SectionContainer title={t('screens.statistic.liquidFertilizing')}>
+        <SeedingInfo data={liqfert} type={'liquid'}/>
+      </SectionContainer>
+    ) : null;
   };
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.section}>
-        <Text style={styles.title}>
-          {t('screens.statistic.generalInformation')}
-        </Text>
-        <Text>
-          {t('screens.statistic.sn')}: {data.SN}
-        </Text>
-        <Text>
-          {t('screens.statistic.field')}: {data.Field}
-        </Text>
-        <Text>
-          {t('screens.statistic.date')}:{' '}
-          {new Date(data.Date).toLocaleDateString()}
-        </Text>
-      </View>
+      <SectionContainer title={t('screens.statistic.generalInformation')}>
+        <TextField title={t('screens.statistic.sn')} value={data.SN}/>
+        <TextField title={t('screens.statistic.field')} value={data.Field} />
+        <TextField
+          title={t('screens.statistic.date')}
+          value={new Date(data.Date).toLocaleDateString()}
+        />
+      </SectionContainer>
 
-      <View style={styles.section}>
-        <Text style={styles.title}>
-          {t('screens.statistic.fieldInformation')}
-        </Text>
-        <Text>
-          {t('screens.statistic.pathKm')}: {data.workOnField.PathKm}
-        </Text>
-        <Text>
-          {t('screens.statistic.areaHa')}: {data.workOnField.AreaHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.workTime')}: {data.workOnField.WorkTime}
-        </Text>
-        <Text>
-          {t('screens.statistic.speedKmh')}: {data.workOnField.SpeedKmh}
-        </Text>
-        <Text>
-          {t('screens.statistic.beginOfWork')}: {data.workOnField.BeginOfWork}
-        </Text>
-        <Text>
-          {t('screens.statistic.endOfWork')}: {data.workOnField.EndOfWork}
-        </Text>
-      </View>
+      <SectionContainer title={t('screens.statistic.fieldInformation')}>
+        <TextField
+          title={t('screens.statistic.pathKm')}
+          value={data.workOnField.PathKm}
+        />
+        <TextField
+          title={t('screens.statistic.areaHa')}
+          value={data.workOnField.AreaHa}
+        />
+        <TextField
+          title={t('screens.statistic.workTime')}
+          value={data.workOnField.WorkTime}
+        />
+        <TextField
+          title={t('screens.statistic.speedKmh')}
+          value={data.workOnField.SpeedKmh}
+        />
+        <TextField
+          title={t('screens.statistic.beginOfWork')}
+          value={new Date(data.workOnField.BeginOfWork).toLocaleString()}
+        />
+        <TextField
+          title={t('screens.statistic.endOfWork')}
+          value={new Date(data.workOnField.EndOfWork).toLocaleString()}
+        />
+      </SectionContainer>
 
-      <View style={styles.section}>
-        <Text style={styles.title}>{t('screens.statistic.speedControl')}</Text>
-        <Text>
-          {t('screens.statistic.slowPathKm')}: {data.speedControl.SlowPathKm}
-        </Text>
-        <Text>
-          {t('screens.statistic.fastPathKm')}: {data.speedControl.FastPathKm}
-        </Text>
-      </View>
+    {!!data.WeightProducts?.length && (
+      <SectionContainer title={t('screens.statistic.weightProducts')}>
+        {data.WeightProducts.map((product, index) => (
+            <WeightProduct key={index} product={product} />
+        ))}
+      </SectionContainer>
+      )}
 
-      <View style={styles.section}>
-        <Text style={styles.title}>{t('screens.statistic.seeding')}</Text>
-        <Text>
-          {t('screens.statistic.sownHa')}: {data.Seeding.SownHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.notSownHa')}: {data.Seeding.NotSownHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.unknownSownHa')}: {data.Seeding.UnknownSownHa}
-        </Text>
-      </View>
+      {'workWithoutCrashControl' in data && (
+          WorkWithoutCrashControl(data.workWithoutCrashControl)
+      )}
 
-      <View style={styles.section}>
-        <Text style={styles.title}>{t('screens.statistic.fertilizing')}</Text>
-        <Text>
-          {t('screens.statistic.fertilizedHa')}: {data.Fertilizing.FertilizedHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.notFertilizedHa')}:{' '}
-          {data.Fertilizing.NotFertilizedHa}
-        </Text>
-        <Text>
-          {t('screens.statistic.unknownFertilizedHa')}:{' '}
-          {data.Fertilizing.UnknownFertilizedHa}
-        </Text>
-      </View>
+      <SectionContainer title={t('screens.statistic.speedControl')}>
+        <TextField
+          title={t('screens.statistic.slowPathKm')}
+          value={data.speedControl.SlowPathKm}
+          warning
+        />
+        <TextField
+          title={t('screens.statistic.fastPathKm')}
+          value={data.speedControl.FastPathKm}
+          warning
+        />
+      </SectionContainer>
 
-      <View style={styles.section}>
-        <Text style={styles.title}>
-          {t('screens.statistic.weightProducts')}
-        </Text>
-        {renderWeightProducts()}
-      </View>
+      {renderSeeding()}
+      {renderFertilizing()}
+      {renderLiquidFertilizing()}
 
-      <View style={styles.section}>
-        <Text style={styles.title}>{t('screens.statistic.seedSensors')}</Text>
-        {renderSeedSensors()}
-      </View>
+      {!!seedSensors.length && (
+        <SectionContainer title={seedSensorsTitle}>
+          {seedSensors.map((sensor, index) => (
+            <Sensor key={index} sensor={sensor} type={'seed'}/>
+          ))}
+        </SectionContainer>
+      )}
 
-      <View style={styles.section}>
-        <Text style={styles.title}>
-          {t('screens.statistic.fertilizerSensors')}
-        </Text>
-        {renderFertilizerSensors()}
-      </View>
+      {!!seedSensorsGrB.length && (
+        <SectionContainer title={t('screens.statistic.seedSensorsGrB')}>
+          {seedSensorsGrB.map((sensor, index) => (
+            <Sensor key={index} sensor={sensor} type={'seed'}/>
+          ))}
+        </SectionContainer>
+      )}
+
+    {!!liquidFertilizerSensors.length && (
+        <SectionContainer title={t('screens.statistic.liquidFertilizerSensors')}>
+            {liquidFertilizerSensors.map((sensor, index) => (
+                <Sensor key={index} sensor={sensor} type={'seed'}/>
+            ))}
+        </SectionContainer>
+    )}
+
+    {!!fertilizerSensors.length && (
+        <SectionContainer title={t('screens.statistic.fertilizerSensors')}>
+          {fertilizerSensors.map((sensor, index) => (
+            <Sensor key={index} sensor={sensor} type={'fertilizer'}/>
+          ))}
+        </SectionContainer>
+    )}
+
     </ScrollView>
   );
 };
@@ -194,25 +153,6 @@ export const FieldData = ({data}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-  },
-  section: {
-    marginBottom: 16,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '700',
-    marginBottom: 8,
-    color: '#4b4f58',
-  },
-  card: {
-    padding: 8,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 4,
-    marginBottom: 8,
-  },
-  warning: {
-    backgroundColor: '#ffd0d0',
+    padding: 10,
   },
 });

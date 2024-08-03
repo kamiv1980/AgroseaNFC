@@ -60,6 +60,18 @@
       "slowPathKm": "Wolna droga Km",
       "fastPathKm": "Szybka droga Km",
       "seeding": "Siew",
+      "seedingGrA": "Siew, grupa A",
+      "seedingGrB": "Siew, grupa B",
+      "seedSensorsGrA": "Czujniki nasion, grupa A",
+      "seedSensorsGrB": "Czujniki nasion, grupa B",
+      "totalSeedThousand": "Całkowita liczba ziaren (x1000)",
+      "qualityPct": "Jakość (%)",
+      "doublesPct": "Podwójne (%)",
+      "skipsPct": "Pominięcia (%)",
+      "densityFact": "Rzeczywista gęstość (ks/Ha)",
+      "densitySet": "Ustawiona gęstość (ks/Ha)",
+      "rateFact": "Rzeczywista szybkość (sds/m)",
+      "rateSet": "Ustawiona szybkość (sds/m)",
       "sownHa": "Obsiane Ha",
       "notSownHa": "Nieobsiane Ha",
       "unknownSownHa": "Nieznane obsiane Ha",
@@ -77,17 +89,25 @@
       "rateHighPathKm": "Wysoka stawka Km",
       "rateHighAlarmCount": "Liczba alarmów wysokiej stawki",
       "seedSensors": "Czujniki nasion",
-      "seedSensorId": "ID czujnika nasion",
+      "seedSensorId": "Czujnik nasion",
       "sownPct": "Procent obsiania",
       "notSownPct": "Procent nieobsiania",
       "unknownSownPct": "Nieznany procent obsiania",
       "fertilizerSensors": "Czujniki nawozu",
-      "fertilizerSensorId": "ID czujnika nawozu",
+      "fertilizerSensorId": "Czujnik nawozu",
       "fertilizedPct": "Procent nawożenia",
       "notFertilizedPct": "Procent nienawożenia",
       "unknownFertilizedPct": "Nieznany procent nawożenia",
-      "rateLowKm": "Niska stawka Km",
-      "rateLowCount": "Liczba niskich stawek"
+      "rateLowKm": "Niska szybkość Km",
+      "rateLowCount": "Liczba niskiej szybkości",
+      "rateHighKm": "Wysoka szybkość Km",
+      "rateHighCount": "Liczba wysokiej szybkości",
+      "workWithoutCrashControl": "Praca bez kontroli awarii",
+      "liquidFertilizing": "Nawożenie płynne",
+      "liquidFertilizerSensors": "Czujniki nawożenia płynnego",
+      "totalLiters": "Całkowita ilość (l)",
+      "rateFactLiquid": "Rzeczywista dawka (l/Ha)",
+      "rateTargetLiquid": "Ustawiona dawka (l/Ha)"
     },
     "more": {
       "title": "Więcej",
@@ -118,6 +138,9 @@
       "description_2": "Pozwala numerować czujniki siewu, odczytywać i przeglądać statystyki siewu oraz wykonywać różne operacje serwisowe.",
       "version": "Wersja aplikacji 1.0.0",
       "terms": "© AGROSEA - 2024. Wszelkie prawa zastrzeżone"
+    },
+    "error": {
+      "nfcNotSupported": "NFC nie jest obsługiwane"
     }
   }
 }

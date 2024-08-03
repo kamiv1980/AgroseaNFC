@@ -7,3 +7,4 @@ export * from './LanguageSelectScreen';
 export * from './TrialCodeScreen';
 export * from './StatisticScreen';
 export * from './AboutScreen';
+export * from './ErrorScreen';

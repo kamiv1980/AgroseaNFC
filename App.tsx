@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './src/localization/i18n';
-import {Platform, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Platform} from 'react-native';
 import NfcManager, {
   Nfc15693RequestFlagIOS,
   NfcTech,
@@ -12,6 +12,7 @@ import {
   SensorScreen,
   MoreScreen,
   StatisticScreen,
+  ErrorScreen
 } from './src/screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -25,7 +26,6 @@ NfcManager.start();
 
 function App(): React.JSX.Element | null {
   const [hasNfc, setHasNFC] = useState(null);
-  // const [log, setLog] = useState('Ready...');
   const [mainInfo, setMainInfo] = useState(null);
   const [systemInfo, setSystemInfo] = useState(null);
   const [address, setAddress] = useState(1);
@@ -100,6 +100,9 @@ function App(): React.JSX.Element | null {
       let res = await NfcManager.transceive([32,32,...idBytes,0]);
       console.log(res);
 
+      const resp1 = await NfcManager.transceive([0x20,0x20,0,0,0,0,0,0,0,0,0]);
+      console.log(resp1);
+
     } catch (ex) {
       await NfcManager.setAlertMessage(`Oops! ${ex}`);
       setMainInfo(null);
@@ -169,20 +172,6 @@ function App(): React.JSX.Element | null {
     }
   };
 
-  if (hasNfc === null) {
-    return null;
-  }
-
-  // if (!hasNfc) {
-  //   return (
-  //     <SafeAreaView style={styles.container}>
-  //       <View style={styles.log}>
-  //         <Text>NFC not supported</Text>
-  //       </View>
-  //     </SafeAreaView>
-  //   );
-  // }
-
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -202,6 +191,7 @@ function App(): React.JSX.Element | null {
             ),
           }}>
           {props => (
+            hasNfc ?
             <SensorScreen
               {...props}
               NfcManager={NfcManager}
@@ -212,7 +202,7 @@ function App(): React.JSX.Element | null {
               }}
               address={address}
               error={error}
-            />
+            /> : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>
           )}
         </Tab.Screen>
         <Tab.Screen
@@ -227,7 +217,8 @@ function App(): React.JSX.Element | null {
               />
             ),
           }}>
-          {props => <StatisticScreen {...props} />}
+          {props => hasNfc ? <StatisticScreen {...props} />
+              : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>}
         </Tab.Screen>
         <Tab.Screen
           name={t('screens.tag.title')}
@@ -238,12 +229,13 @@ function App(): React.JSX.Element | null {
             ),
           }}>
           {props => (
+            hasNfc ?
             <TagScreen
               {...props}
               readTag={readTag}
               mainInfo={mainInfo}
               systemInfo={systemInfo}
-            />
+            /> : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>
           )}
         </Tab.Screen>
         <Tab.Screen
@@ -263,16 +255,3 @@ function App(): React.JSX.Element | null {
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  log: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

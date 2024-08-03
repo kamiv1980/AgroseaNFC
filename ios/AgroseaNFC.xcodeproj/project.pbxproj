@@ -181,8 +181,8 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				BC2FA994AEE29B899728AB83 /* [CP] Embed Pods Frameworks */,
 				7B62E1786970A545CBF80BF4 /* [CP] Copy Pods Resources */,
+				78747533B5CA60E2284CD0A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -204,8 +204,8 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				CE0CA10A2B66CDE200391946 /* Embed Frameworks */,
-				A842B01E961D0994512FA608 /* [CP] Embed Pods Frameworks */,
 				585F911317C5CCAE41C207D1 /* [CP] Copy Pods Resources */,
+				069B9FD977256FF1004B00F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +292,23 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
+		069B9FD977256FF1004B00F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		585F911317C5CCAE41C207D1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +326,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		78747533B5CA60E2284CD0A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7B62E1786970A545CBF80BF4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,40 +358,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A842B01E961D0994512FA608 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC/Pods-AgroseaNFC-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BC2FA994AEE29B899728AB83 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AgroseaNFC-AgroseaNFCTests/Pods-AgroseaNFC-AgroseaNFCTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFC5303EA3B666D58DC7276F /* [CP] Check Pods Manifest.lock */ = {
