@@ -32,7 +32,7 @@ export const StatisticScreen = () => {
     setIsLoading(true);
 
     const htmlString = generateHTML(decompressedData, t);
-    console.log(htmlString)
+
     try {
       const options = {
         html: htmlString,

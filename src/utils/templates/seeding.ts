@@ -1,15 +1,16 @@
 export function renderSeeding(seeding, title, t, type) {
     const isExtended =
+        seeding &&
         'QualityPct' in seeding &&
         'DoublesPct' in seeding &&
         'SkipsPct' in seeding &&
         'NotSownPct' in seeding;
     const isExistDensity =
-        'DensityFact' in seeding && 'DensityFactPct' in seeding && 'DensitySet' in seeding;
+        seeding && 'DensityFact' in seeding && 'DensityFactPct' in seeding && 'DensitySet' in seeding;
     const isExistRate =
-        'RateFact' in seeding && 'RateFactPct' in seeding && 'RateSet' in seeding;
+        seeding && 'RateFact' in seeding && 'RateFactPct' in seeding && 'RateSet' in seeding;
     const isExistLiquidRate =
-        'RateFact' in seeding && 'RateFactPct' in seeding && 'RateTarget' in seeding;
+        seeding && 'RateFact' in seeding && 'RateFactPct' in seeding && 'RateTarget' in seeding;
 
     return seeding ? `
     <table border="1" cellpadding="4" cellspacing="0" class="margin-top">

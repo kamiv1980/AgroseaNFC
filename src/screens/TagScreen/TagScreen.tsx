@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: '#4b4f58',
     fontWeight: '700',
+    alignSelf: 'center',
   },
   instruction: {
     marginTop: 10,
