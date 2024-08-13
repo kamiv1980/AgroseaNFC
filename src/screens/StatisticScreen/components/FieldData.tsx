@@ -2,12 +2,12 @@ import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {
-    SectionContainer,
-    SeedingInfo,
-    Sensor,
-    TextField,
-    WeightProduct,
-    WorkWithoutCrashControl,
+  SectionContainer,
+  SeedingInfo,
+  Sensor,
+  TextField,
+  WeightProduct,
+  WorkWithoutCrashControl,
 } from './index';
 
 export const FieldData = ({data}) => {
@@ -16,33 +16,39 @@ export const FieldData = ({data}) => {
   const seedSensorsGrB = data.SeedSensorsGrB || [];
   const liquidFertilizerSensors = data.Liqferts || [];
   const fertilizerSensors = data.FertilizerSensors || [];
-  const seedSensorsTitle = !!data.SeedSensors ? t('screens.statistic.seedSensors') : t('screens.statistic.seedSensorsGrA');
+  const seedSensorsTitle = data.SeedSensors
+    ? t('screens.statistic.seedSensors')
+    : t('screens.statistic.seedSensorsGrA');
 
   const renderSeeding = () => {
     const seeding = data.Seeding || data.SeedingGrA;
-    const title = !!data.Seeding ? t('screens.statistic.seeding') : t('screens.statistic.seedingGrA')
-    return !!seeding ? (
+    const title = data.Seeding
+      ? t('screens.statistic.seeding')
+      : t('screens.statistic.seedingGrA');
+    return seeding ? (
       <SectionContainer title={title}>
-        <SeedingInfo data={seeding} type={'seed'}/>
+        <SeedingInfo data={seeding} type={'seed'} />
       </SectionContainer>
     ) : null;
   };
 
   const renderFertilizing = () => {
     const fertilizing = data.Fertilizing || data.SeedingGrB;
-    const title = !!data.Fertilizing ? t('screens.statistic.fertilizing') : t('screens.statistic.seedingGrB')
-    return !!fertilizing ? (
+    const title = data.Fertilizing
+      ? t('screens.statistic.fertilizing')
+      : t('screens.statistic.seedingGrB');
+    return fertilizing ? (
       <SectionContainer title={title}>
-        <SeedingInfo data={fertilizing} type={'fertilizer'}/>
+        <SeedingInfo data={fertilizing} type={'fertilizer'} />
       </SectionContainer>
     ) : null;
   };
 
   const renderLiquidFertilizing = () => {
     const liqfert = data.Liqfert;
-    return !!liqfert ? (
+    return liqfert ? (
       <SectionContainer title={t('screens.statistic.liquidFertilizing')}>
-        <SeedingInfo data={liqfert} type={'liquid'}/>
+        <SeedingInfo data={liqfert} type={'liquid'} />
       </SectionContainer>
     ) : null;
   };
@@ -50,7 +56,7 @@ export const FieldData = ({data}) => {
   return (
     <ScrollView style={styles.container}>
       <SectionContainer title={t('screens.statistic.generalInformation')}>
-        <TextField title={t('screens.statistic.sn')} value={data.SN}/>
+        <TextField title={t('screens.statistic.sn')} value={data.SN} />
         <TextField title={t('screens.statistic.field')} value={data.Field} />
         <TextField
           title={t('screens.statistic.date')}
@@ -85,17 +91,16 @@ export const FieldData = ({data}) => {
         />
       </SectionContainer>
 
-    {!!data.WeightProducts?.length && (
-      <SectionContainer title={t('screens.statistic.weightProducts')}>
-        {data.WeightProducts.map((product, index) => (
+      {!!data.WeightProducts?.length && (
+        <SectionContainer title={t('screens.statistic.weightProducts')}>
+          {data.WeightProducts.map((product, index) => (
             <WeightProduct key={index} product={product} />
-        ))}
-      </SectionContainer>
+          ))}
+        </SectionContainer>
       )}
 
-      {'workWithoutCrashControl' in data && (
-          WorkWithoutCrashControl(data.workWithoutCrashControl)
-      )}
+      {'workWithoutCrashControl' in data &&
+        WorkWithoutCrashControl(data.workWithoutCrashControl)}
 
       <SectionContainer title={t('screens.statistic.speedControl')}>
         <TextField
@@ -117,7 +122,7 @@ export const FieldData = ({data}) => {
       {!!seedSensors.length && (
         <SectionContainer title={seedSensorsTitle}>
           {seedSensors.map((sensor, index) => (
-            <Sensor key={index} sensor={sensor} type={'seed'}/>
+            <Sensor key={index} sensor={sensor} type={'seed'} />
           ))}
         </SectionContainer>
       )}
@@ -125,27 +130,27 @@ export const FieldData = ({data}) => {
       {!!seedSensorsGrB.length && (
         <SectionContainer title={t('screens.statistic.seedSensorsGrB')}>
           {seedSensorsGrB.map((sensor, index) => (
-            <Sensor key={index} sensor={sensor} type={'seed'}/>
+            <Sensor key={index} sensor={sensor} type={'seed'} />
           ))}
         </SectionContainer>
       )}
 
-    {!!liquidFertilizerSensors.length && (
-        <SectionContainer title={t('screens.statistic.liquidFertilizerSensors')}>
-            {liquidFertilizerSensors.map((sensor, index) => (
-                <Sensor key={index} sensor={sensor} type={'seed'}/>
-            ))}
-        </SectionContainer>
-    )}
-
-    {!!fertilizerSensors.length && (
-        <SectionContainer title={t('screens.statistic.fertilizerSensors')}>
-          {fertilizerSensors.map((sensor, index) => (
-            <Sensor key={index} sensor={sensor} type={'fertilizer'}/>
+      {!!liquidFertilizerSensors.length && (
+        <SectionContainer
+          title={t('screens.statistic.liquidFertilizerSensors')}>
+          {liquidFertilizerSensors.map((sensor, index) => (
+            <Sensor key={index} sensor={sensor} type={'seed'} />
           ))}
         </SectionContainer>
-    )}
+      )}
 
+      {!!fertilizerSensors.length && (
+        <SectionContainer title={t('screens.statistic.fertilizerSensors')}>
+          {fertilizerSensors.map((sensor, index) => (
+            <Sensor key={index} sensor={sensor} type={'fertilizer'} />
+          ))}
+        </SectionContainer>
+      )}
     </ScrollView>
   );
 };

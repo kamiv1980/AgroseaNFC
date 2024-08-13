@@ -1,15 +1,23 @@
 import {
-    renderSeeding,
-    renderSensors,
-    renderSpeedControl,
-    renderWorkOnField,
-    renderWorkWithoutControl
-} from "./templates";
+  renderSeeding,
+  renderSensors,
+  renderSpeedControl,
+  renderWorkOnField,
+  renderWorkWithoutControl,
+} from './templates';
 
 export function generateHTML(data, t) {
-    const { SN, Field, workOnField, WeightProducts, speedControl, workWithoutCrashControl, ...rest } = data;
+  const {
+    SN,
+    Field,
+    workOnField,
+    WeightProducts,
+    speedControl,
+    workWithoutCrashControl,
+    ...rest
+  } = data;
 
-    return `
+  return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,95 +25,92 @@ export function generateHTML(data, t) {
     <title>Statistic</title>
     <style>
         body {
-        font-family: arial;
+            font-family: Arial, sans-serif;
+            padding: 16px 4px;
         }
-        td.header {
-         text-align: center;
-         background-color : #D0D0D0;
+        .header {
+            text-align: center;
+            background-color: #D0D0D0;
+            box-shadow: inset 0px 0px 0px 1000px #D0D0D0
         }
         .margin-top {
-         margin-top: 32px;
+            margin: 16px auto;
         }
-        td.greenvalue {
-         text-align: left;
-         background-color : #FFFFFF;
+        .greenvalue {
+            text-align: left;
+            background-color: #FFFFFF;
+            box-shadow: inset 0px 0px 0px 1000px #FFFFFF
         }
-        td.redvalue {
-         text-align: left;
-         background-color : #FFF0F0;
+        .redvalue {
+            text-align: left;
+            background-color: #FFF0F0;
+            box-shadow: inset 0px 0px 0px 1000px #FFF0F0
         }
-        td.sownquality {
-         text-align: left;
-         background-color : #00AA00;
-         height : 32px;
+        .sownquality, .sowndoubles, .sownskips, .sownnotsown, .areasown, .areanotsown, .areaunknown {
+            height: 32px;
+            width: 32px;
         }
-        td.sowndoubles {
-         text-align: left;
-         background-color : #0080FF;
-         height : 32px;
+        .sownquality {
+            background-color: #00AA00;
+            box-shadow: inset 0px 0px 0px 1000px #00AA00
         }
-        td.sownskips {
-         text-align: left;
-         background-color : #FFFF00;
-         height : 32px;
+        .sowndoubles {
+            background-color: #0080FF;
+            box-shadow: inset 0px 0px 0px 1000px #0080FF
         }
-        td.sownnotsown {
-         text-align: left;
-         background-color : #FF0000;
-         height : 32px;
+        .sownskips {
+            background-color: #FFFF00;
+            box-shadow: inset 0px 0px 0px 1000px #FFFF00
         }
-        td.marker-sownquality {
-         text-align: left;
-         background-color : #00AA00;
-         height : 16px;
-         width : 16px;
+        .sownnotsown {
+            background-color: #FF0000;
+            box-shadow: inset 0px 0px 0px 1000px #FF0000
         }
-        td.marker-sowndoubles {
-         text-align: left;
-         background-color : #0080FF;
-         height : 16px;
-         width : 16px;
+        .areasown {
+            background-color: #00AA00;
+            box-shadow: inset 0px 0px 0px 1000px #00AA00
         }
-        td.marker-sownskips {
-         text-align: left;
-         background-color : #FFFF00;
-         height : 16px;
-         width : 16px;
+        .areanotsown {
+            background-color: #FF0000;
+            box-shadow: inset 0px 0px 0px 1000px #FF0000
         }
-        td.marker-sownnotsown {
-         text-align: left;
-         background-color : #FF0000;
-         height : 16px;
-         width : 16px;
+        .areaunknown {
+            background-color: #AAAAAA;
+            box-shadow: inset 0px 0px 0px 1000px #AAAAAA
         }
-        td.areasown {
-         background-color : #00AA00;
-         height : 32px;
+        .marker-sownquality, .marker-sowndoubles, .marker-sownskips, .marker-sownnotsown, .marker-areasown, .marker-areanotsown, .marker-areaunknown {
+            width: 16px;
+            height: 16px;
         }
-        td.areanotsown {
-         background-color : #FF0000;
-         height : 32px;
+        .marker-sownquality {
+            background-color: #00AA00;
+            box-shadow: inset 0px 0px 0px 1000px #00AA00
         }
-        td.areaunknown {
-         background-color : #AAAAAA;
-         height : 32px;
+        .marker-sowndoubles {
+            background-color: #0080FF;
+            box-shadow: inset 0px 0px 0px 1000px #0080FF
         }
-        td.marker-areasown {
-         background-color : #00AA00;
-         height : 16px;
-         width : 16px;
+        .marker-sownskips {
+            background-color: #FFFF00;
+            box-shadow: inset 0px 0px 0px 1000px #FFFF00
         }
-        td.marker-areanotsown {
-         background-color : #FF0000;
-         height : 16px;
-         width : 16px;
+        .marker-sownnotsown {
+            background-color: #FF0000;
+            box-shadow: inset 0px 0px 0px 1000px #FF0000
         }
-        td.marker-areaunknown {
-            background-color : #AAAAAA;
-            height : 16px;
-            width : 16px;
-}
-</style>
+        .marker-areasown {
+            background-color: #00AA00;
+            box-shadow: inset 0px 0px 0px 1000px #00AA00
+        }
+        .marker-areanotsown {
+            background-color: #FF0000;
+            box-shadow: inset 0px 0px 0px 1000px #FF0000
+        }
+        .marker-areaunknown {
+            background-color: #AAAAAA;
+            box-shadow: inset 0px 0px 0px 1000px #AAAAAA
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -128,6 +133,5 @@ export function generateHTML(data, t) {
 </div>
 </body>
 </html>
-
   `;
 }

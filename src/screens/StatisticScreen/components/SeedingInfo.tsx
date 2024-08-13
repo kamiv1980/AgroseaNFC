@@ -20,10 +20,10 @@ export const SeedingInfo = ({data, type}) => {
     <>
       {'TotalLiters' in data && (
         <>
-            <TextField
-                title={t('screens.statistic.totalLiters')}
-                value={data?.TotalLiters}
-            />
+          <TextField
+            title={t('screens.statistic.totalLiters')}
+            value={data?.TotalLiters}
+          />
           <Underline />
         </>
       )}
@@ -63,7 +63,7 @@ export const SeedingInfo = ({data, type}) => {
               data.QualityPct,
               data.DoublesPct,
               data.SkipsPct,
-              data.NotSownPct
+              data.NotSownPct,
             ]}
             colors={['#04bb04', '#5f61f8', '#faef3e', '#f83232']}
           />
@@ -113,35 +113,39 @@ export const SeedingInfo = ({data, type}) => {
         </>
       )}
 
-        <TextField
-            title={
-                (type === 'liquid' || type === 'fertilizer')
-                ? t('screens.statistic.fertilizedHa')
-                : t('screens.statistic.sownHa')
-            }
-            value={data?.GraphSownHa}
-            label={'#04bb04'}
-        />
-        <TextField
-            title={
-                (type === 'liquid' || type === 'fertilizer')
-                ? t('screens.statistic.notFertilizedHa')
-                : t('screens.statistic.notSownHa')
-            }
-            value={data?.GraphNotSownHa}
-            label={'#f83232'}
-        />
-        <TextField
-            title={
-                (type === 'liquid' || type === 'fertilizer')
-                ? t('screens.statistic.unknownFertilizedHa')
-                : t('screens.statistic.unknownSownHa')
-            }
-            value={data?.GraphUnknownSownHa}
-            label={'#b3b3b4'}
-        />
+      <TextField
+        title={
+          (type === 'liquid' || type === 'fertilizer')
+            ? t('screens.statistic.fertilizedHa')
+            : t('screens.statistic.sownHa')
+        }
+        value={data?.GraphSownHa}
+        label={'#04bb04'}
+      />
+      <TextField
+        title={
+          (type === 'liquid' || type === 'fertilizer')
+            ? t('screens.statistic.notFertilizedHa')
+            : t('screens.statistic.notSownHa')
+        }
+        value={data?.GraphNotSownHa}
+        label={'#f83232'}
+      />
+      <TextField
+        title={
+          (type === 'liquid' || type === 'fertilizer')
+            ? t('screens.statistic.unknownFertilizedHa')
+            : t('screens.statistic.unknownSownHa')
+        }
+        value={data?.GraphUnknownSownHa}
+        label={'#b3b3b4'}
+      />
       <PercentageBar
-        data={[data?.GraphSownPct, data?.GraphNotSownPct, data?.GraphUnknownSownPct]}
+        data={[
+          data?.GraphSownPct,
+          data?.GraphNotSownPct,
+          data?.GraphUnknownSownPct,
+        ]}
         colors={['#04bb04', '#f83232', '#b3b3b4']}
       />
     </>

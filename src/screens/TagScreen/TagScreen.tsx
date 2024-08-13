@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-import React from "react";
+import React from 'react';
 
 const manufCode = {
   2: 'STMicroelectronics',

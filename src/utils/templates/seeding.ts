@@ -1,24 +1,36 @@
 export function renderSeeding(seeding, title, t, type) {
-    const isExtended =
-        seeding &&
-        'QualityPct' in seeding &&
-        'DoublesPct' in seeding &&
-        'SkipsPct' in seeding &&
-        'NotSownPct' in seeding;
-    const isExistDensity =
-        seeding && 'DensityFact' in seeding && 'DensityFactPct' in seeding && 'DensitySet' in seeding;
-    const isExistRate =
-        seeding && 'RateFact' in seeding && 'RateFactPct' in seeding && 'RateSet' in seeding;
-    const isExistLiquidRate =
-        seeding && 'RateFact' in seeding && 'RateFactPct' in seeding && 'RateTarget' in seeding;
+  const isExtended =
+    seeding &&
+    'QualityPct' in seeding &&
+    'DoublesPct' in seeding &&
+    'SkipsPct' in seeding &&
+    'NotSownPct' in seeding;
+  const isExistDensity =
+    seeding &&
+    'DensityFact' in seeding &&
+    'DensityFactPct' in seeding &&
+    'DensitySet' in seeding;
+  const isExistRate =
+    seeding &&
+    'RateFact' in seeding &&
+    'RateFactPct' in seeding &&
+    'RateSet' in seeding;
+  const isExistLiquidRate =
+    seeding &&
+    'RateFact' in seeding &&
+    'RateFactPct' in seeding &&
+    'RateTarget' in seeding;
 
-    return seeding ? `
+  return seeding
+    ? `
     <table border="1" cellpadding="4" cellspacing="0" class="margin-top">
       <tbody>
         <tr>
           <td class="header" colspan="4"><b>${title}</b></td>
         </tr>
-        ${'TotalSeedThousand' in seeding ? `
+        ${
+          'TotalSeedThousand' in seeding
+            ? `
         <tr>
           <td bgcolor="#FFFFFF" colspan="4">
             <table border="0" cellpadding="4" cellspacing="0">
@@ -31,8 +43,12 @@ export function renderSeeding(seeding, title, t, type) {
             </table>
           </td>
         </tr>
-        ` : ''}
-        ${'TotalLiters' in seeding ? `
+        `
+            : ''
+        }
+        ${
+          'TotalLiters' in seeding
+            ? `
         <tr>
           <td bgcolor="#FFFFFF" colspan="4">
             <table border="0" cellpadding="4" cellspacing="0">
@@ -45,8 +61,12 @@ export function renderSeeding(seeding, title, t, type) {
             </table>
           </td>
         </tr>
-        ` : ''}
-        ${isExtended ? `
+        `
+            : ''
+        }
+        ${
+          isExtended
+            ? `
         <tr>
           <td bgcolor="#FFFFFF" colspan="2">
             <table border="0" cellpadding="4" cellspacing="0">
@@ -87,10 +107,18 @@ export function renderSeeding(seeding, title, t, type) {
                   <td colspan="6" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tbody><tr>
-                        <td class="sownquality" style="width: ${seeding.QualityPct * 10}px;"></td>
-                        <td class="sowndoubles" style="width: ${seeding.DoublesPct * 10}px;"></td>
-                        <td class="sownskips" style="width: ${seeding.SkipsPct * 10}px;"></td>
-                        <td class="sownnotsown" style="width: ${seeding.NotSownPct * 10}px;"></td>
+                        <td class="sownquality" style="width: ${
+                          seeding.QualityPct * 10
+                        }px;"></td>
+                        <td class="sowndoubles" style="width: ${
+                          seeding.DoublesPct * 10
+                        }px;"></td>
+                        <td class="sownskips" style="width: ${
+                          seeding.SkipsPct * 10
+                        }px;"></td>
+                        <td class="sownnotsown" style="width: ${
+                          seeding.NotSownPct * 10
+                        }px;"></td>
                       </tr>
                       </tbody>
                     </table>
@@ -108,7 +136,9 @@ export function renderSeeding(seeding, title, t, type) {
               <tbody>
                 <tr>
                     <td width=250>${t('screens.statistic.densityFact')}</td>
-                    <td width=110>${seeding.DensityFact} (${seeding.DensityFactPct}%)</td>
+                    <td width=110>${seeding.DensityFact} (${
+                seeding.DensityFactPct
+              }%)</td>
                     <td width=250>${t('screens.statistic.densitySet')}</td>
                     <td width=110>${seeding.DensitySet}</td>
                 </tr>
@@ -124,7 +154,9 @@ export function renderSeeding(seeding, title, t, type) {
               <tbody>
                 <tr>
                     <td width=250>${t('screens.statistic.rateFact')}</td>
-                    <td width=110>${seeding.RateFact} (${seeding.RateFactPct}%)</td>
+                    <td width=110>${seeding.RateFact} (${
+                seeding.RateFactPct
+              }%)</td>
                     <td width=250>${t('screens.statistic.rateSet')}</td>
                     <td width=110>${seeding.RateSet}</td>
                 </tr>
@@ -132,15 +164,21 @@ export function renderSeeding(seeding, title, t, type) {
             </table>
           </td>
         </tr>
-        ` : ''}
-        ${isExistLiquidRate ? `
+        `
+            : ''
+        }
+        ${
+          isExistLiquidRate
+            ? `
         <tr>
           <td bgcolor="#FFFFFF" colspan="4">
             <table border="0" cellpadding="4" cellspacing="0">
               <tbody>
                 <tr>
                     <td width=250>${t('screens.statistic.rateFactLiquid')}</td>
-                    <td width=110>${seeding.RateFact} (${seeding.RateFactPct}%)</td>
+                    <td width=110>${seeding.RateFact} (${
+                seeding.RateFactPct
+              }%)</td>
                     <td width=250>${t('screens.statistic.rateTargetLiquid')}</td>
                     <td width=110>${seeding.RateTarget}</td>
                 </tr>
@@ -177,9 +215,15 @@ export function renderSeeding(seeding, title, t, type) {
                   <td colspan="6" align="center">
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tbody><tr>
-                        <td class="areasown" style="width: ${seeding.GraphSownPct * 10}px"></td>
-                        <td class="areanotsown" style="width: ${seeding.GraphNotSownPct * 10}px"></td>
-                        <td class="areaunknown" style="width: ${seeding.GraphUnknownSownPct * 10}px"></td>
+                        <td class="areasown" style="width: ${
+                          seeding.GraphSownPct * 10
+                        }px"></td>
+                        <td class="areanotsown" style="width: ${
+                          seeding.GraphNotSownPct * 10
+                        }px"></td>
+                        <td class="areaunknown" style="width: ${
+                          seeding.GraphUnknownSownPct * 10
+                        }px"></td>
                       </tr>
                       </tbody>
                     </table>
@@ -191,5 +235,6 @@ export function renderSeeding(seeding, title, t, type) {
         </tr>
       </tbody>
     </table>
-  ` : '';
+  `
+    : '';
 }

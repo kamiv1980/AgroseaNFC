@@ -8,6 +8,7 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Share,
 } from 'react-native';
 import NfcManager, {NfcTech} from 'react-native-nfc-manager';
 import {useTranslation} from 'react-i18next';
@@ -15,7 +16,8 @@ import useBzip2Data from '../../utils/useBzip2Data';
 import {FieldData} from './components';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
-import {generateHTML} from "../../utils/genarateHTML";
+import RNFS from 'react-native-fs';
+import {generateHTML} from '../../utils/genarateHTML';
 
 export const StatisticScreen = () => {
   const [nfcData, setNfcData] = useState(null);
@@ -38,13 +40,39 @@ export const StatisticScreen = () => {
         html: htmlString,
         fileName: `statistic(${new Date().toLocaleString()})`,
         directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        bgColor: '#FFFFFF',
       };
       const file = await RNHTMLtoPDF.convert(options);
-      Alert.alert('Success', `PDF saved to ${file.filePath}`);
+
+      if (Platform.OS === 'ios') {
+        await onShare(file.filePath);
+        await RNFS.unlink(file.filePath);
+      } else {
+        Alert.alert('Success', `PDF saved to ${file.filePath}`);
+      }
       setIsLoading(false);
     } catch (error: any) {
       Alert.alert('Error', error.message);
       setIsLoading(false);
+    }
+  };
+
+  const onShare = async url => {
+    try {
+      const result = await Share.share({
+        url: url,
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error: any) {
+      Alert.alert(error.message);
     }
   };
 
@@ -90,7 +118,9 @@ export const StatisticScreen = () => {
         </View>
       )}
 
-      {!!isLoading && <ActivityIndicator style={styles.loader} size="large" color="#f0b400" />}
+      {!!isLoading && (
+        <ActivityIndicator style={styles.loader} size="large" color="#f0b400" />
+      )}
 
       {!!decompressedData && <FieldData data={decompressedData} />}
 
@@ -103,14 +133,19 @@ export const StatisticScreen = () => {
       )}
 
       {!!nfcData && (
-          <>
-            <TouchableOpacity style={styles.buttonDownload} onPress={downloadStatistic}>
-            <MaterialIcons name="download" style={styles.iconStyles} />
+        <>
+          <TouchableOpacity
+            style={styles.buttonDownload}
+            onPress={downloadStatistic}>
+            <MaterialIcons
+              name={Platform.OS === 'android' ? 'download' : 'share'}
+              style={styles.iconStyles}
+            />
           </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonClear} onPress={clearStatistic}>
-              <MaterialIcons name="close" style={styles.iconStyles} />
-            </TouchableOpacity>
-          </>
+          <TouchableOpacity style={styles.buttonClear} onPress={clearStatistic}>
+            <MaterialIcons name="close" style={styles.iconStyles} />
+          </TouchableOpacity>
+        </>
       )}
     </SafeAreaView>
   );
@@ -132,32 +167,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#4b4f58',
   },
   buttonDownload: {
-    opacity: .8,
+    opacity: 0.8,
     position: 'absolute',
-    bottom:70,
-    right:12,
-    borderWidth:1,
-    borderColor:'rgba(0,0,0,0.2)',
-    alignItems:'center',
-    justifyContent:'center',
-    width:50,
-    height:50,
+    bottom: 70,
+    right: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
     backgroundColor: '#4b4f58',
-    borderRadius:50,
+    borderRadius: 50,
   },
   buttonClear: {
-    opacity: .8,
+    opacity: 0.8,
     position: 'absolute',
-    bottom:10,
-    right:12,
-    borderWidth:1,
-    borderColor:'rgba(0,0,0,0.2)',
-    alignItems:'center',
-    justifyContent:'center',
-    width:50,
-    height:50,
+    bottom: 10,
+    right: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
     backgroundColor: '#4b4f58',
-    borderRadius:50,
+    borderRadius: 50,
   },
   buttonText: {
     color: '#ffffff',
@@ -184,11 +219,11 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   loader: {
-    position:'absolute',
+    position: 'absolute',
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
-    zIndex:5
+    zIndex: 5,
   },
 });

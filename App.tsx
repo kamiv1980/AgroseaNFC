@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './src/localization/i18n';
-import {Platform} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import NfcManager, {
   Nfc15693RequestFlagIOS,
   NfcTech,
@@ -12,7 +12,7 @@ import {
   SensorScreen,
   MoreScreen,
   StatisticScreen,
-  ErrorScreen
+  ErrorScreen,
 } from './src/screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -26,6 +26,7 @@ NfcManager.start();
 
 function App(): React.JSX.Element | null {
   const [hasNfc, setHasNFC] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
   const [mainInfo, setMainInfo] = useState(null);
   const [systemInfo, setSystemInfo] = useState(null);
   const [address, setAddress] = useState(1);
@@ -53,6 +54,10 @@ function App(): React.JSX.Element | null {
 
   const readTag = () => {
     Platform.OS === 'ios' ? readTagIOS() : readTagAndroid();
+  };
+
+  const writeTag = isCyclic => {
+    Platform.OS === 'ios' ? writeTagIOS(isCyclic) : writeTagAndroid(isCyclic);
   };
 
   const readTagIOS = async () => {
@@ -88,23 +93,19 @@ function App(): React.JSX.Element | null {
 
   const readTagAndroid = async () => {
     try {
-
       await NfcManager.requestTechnology(NfcTech.NfcV);
+
       let tag = await NfcManager.getTag();
       setMainInfo(tag);
-      console.log(tag);
+      console.log('tag', tag);
 
       const idBytes = tag.id.split(/(..)/g).filter(s => s);
-      idBytes.forEach((val, i, a) => a[i] = parseInt(val, 16));
+      idBytes.forEach((val, i, a) => (a[i] = parseInt(val, 16)));
 
-      let res = await NfcManager.transceive([32,32,...idBytes,0]);
-      console.log(res);
-
-      const resp1 = await NfcManager.transceive([0x20,0x20,0,0,0,0,0,0,0,0,0]);
-      console.log(resp1);
-
+      const blockBytes = await NfcManager.transceive([32, 32, ...idBytes, 5]);
+      Array.isArray(blockBytes) && setAddress(blockBytes[1]);
     } catch (ex) {
-      await NfcManager.setAlertMessage(`Oops! ${ex}`);
+      Alert.alert(`Oops! ${ex}`);
       setMainInfo(null);
       setSystemInfo(null);
     } finally {
@@ -165,10 +166,55 @@ function App(): React.JSX.Element | null {
       setError(ex);
       setMainInfo(null);
       setSystemInfo(null);
-      // console.warn('Oops!', ex);
     } finally {
-      // stop the nfc scanning
       NfcManager.cancelTechnologyRequest();
+    }
+  };
+
+  const writeTagAndroid = async isCyclic => {
+    setError('');
+    setModalVisible(true);
+
+    try {
+      await NfcManager.requestTechnology(NfcTech.NfcV, {
+        alertMessage: 'Ready to numbering!',
+      });
+
+      const tag = await NfcManager.getTag();
+      setMainInfo(tag);
+
+      const idBytes = tag.id.split(/(..)/g).filter(s => s);
+      idBytes.forEach((val, i, a) => (a[i] = parseInt(val, 16)));
+      let blockBytes = await NfcManager.transceive([32, 32, ...idBytes, 5]);
+
+      blockBytes = blockBytes.slice(1);
+      console.log('1')
+
+      if (Array.isArray(blockBytes)) {
+        const newBlock = blockBytes.map((el, idx) => (idx === 0 ? address : el));
+
+        await NfcManager.transceive([33, 33, ...idBytes, 5, ...newBlock]);
+        console.log('2')
+
+        let blockBytesForCRC = [];
+        for (let i = 0; i <= 6; i++) {
+          let block = await NfcManager.transceive([32, 32, ...idBytes, i]);
+          blockBytesForCRC.push(...block.slice(1));
+        }
+
+        const crc32 = calculateCRC32(blockBytesForCRC);
+        await NfcManager.transceive([33, 33, ...idBytes, 7, ...crc32]);
+        console.log('Success');
+      }
+
+      !!isCyclic && setAddress(prev => ++prev);
+    } catch (ex) {
+      setError(ex);
+      setMainInfo(null);
+      setSystemInfo(null);
+    } finally {
+      NfcManager.cancelTechnologyRequest();
+      setModalVisible(false);
     }
   };
 
@@ -190,20 +236,27 @@ function App(): React.JSX.Element | null {
               <MaterialIcons name="sensors" color={color} size={size} />
             ),
           }}>
-          {props => (
-            hasNfc ?
-            <SensorScreen
-              {...props}
-              NfcManager={NfcManager}
-              writeTag={writeTagIOS}
-              setAddress={address => {
-                setError('');
-                setAddress(address);
-              }}
-              address={address}
-              error={error}
-            /> : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>
-          )}
+          {props =>
+            hasNfc ? (
+              <SensorScreen
+                {...props}
+                NfcManager={NfcManager}
+                writeTag={writeTag}
+                modalVisible={modalVisible}
+                setAddress={address => {
+                  setError('');
+                  setAddress(address);
+                }}
+                address={address}
+                error={error}
+              />
+            ) : (
+              <ErrorScreen
+                {...props}
+                text={t('screens.error.nfcNotSupported')}
+              />
+            )
+          }
         </Tab.Screen>
         <Tab.Screen
           name={t('screens.statistic.title')}
@@ -217,8 +270,16 @@ function App(): React.JSX.Element | null {
               />
             ),
           }}>
-          {props => hasNfc ? <StatisticScreen {...props} />
-              : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>}
+          {props =>
+            hasNfc ? (
+              <StatisticScreen {...props} />
+            ) : (
+              <ErrorScreen
+                {...props}
+                text={t('screens.error.nfcNotSupported')}
+              />
+            )
+          }
         </Tab.Screen>
         <Tab.Screen
           name={t('screens.tag.title')}
@@ -228,15 +289,21 @@ function App(): React.JSX.Element | null {
               <MaterialCommunityIcons name="memory" color={color} size={size} />
             ),
           }}>
-          {props => (
-            hasNfc ?
-            <TagScreen
-              {...props}
-              readTag={readTag}
-              mainInfo={mainInfo}
-              systemInfo={systemInfo}
-            /> : <ErrorScreen {...props} text={t('screens.error.nfcNotSupported')}/>
-          )}
+          {props =>
+            hasNfc ? (
+              <TagScreen
+                {...props}
+                readTag={readTag}
+                mainInfo={mainInfo}
+                systemInfo={systemInfo}
+              />
+            ) : (
+              <ErrorScreen
+                {...props}
+                text={t('screens.error.nfcNotSupported')}
+              />
+            )
+          }
         </Tab.Screen>
         <Tab.Screen
           name="More"

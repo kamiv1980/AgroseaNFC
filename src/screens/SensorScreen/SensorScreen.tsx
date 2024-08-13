@@ -10,8 +10,15 @@ import {
   View,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {ModalView} from '../../components';
 
-export const SensorScreen = ({writeTag, setAddress, address, error}) => {
+export const SensorScreen = ({
+  writeTag,
+  setAddress,
+  address,
+  error,
+  modalVisible,
+}) => {
   const [isCyclic, setIsCyclic] = useState(false);
   const toggleSwitch = () => setIsCyclic(previousState => !previousState);
   const {t} = useTranslation();
@@ -26,6 +33,7 @@ export const SensorScreen = ({writeTag, setAddress, address, error}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <ModalView text={t('screens.sensor.ready')} visible={modalVisible} />
       <View>
         <View style={styles.wrapper}>
           <Text style={styles.subtitle}>{t('screens.sensor.newAddress')}</Text>
@@ -82,10 +90,6 @@ export const SensorScreen = ({writeTag, setAddress, address, error}) => {
           </Text>
         </TouchableOpacity>
       </View>
-
-      {/*<TouchableOpacity style={styles.buttonWrite} onPress={writeTag}>*/}
-      {/*  <Text style={styles.buttonText}>Cancel</Text>*/}
-      {/*</TouchableOpacity>*/}
     </SafeAreaView>
   );
 };

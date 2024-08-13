@@ -33,7 +33,8 @@
       "cyclicRecording" : "Cyclic recording",
       "errorTitle" : "Something went wrong!",
       "errorRecord" : "Recording failed!",
-      "noteText" : "The sequence number of the sensor corresponds to the number of the sowing row."
+      "noteText" : "The sequence number of the sensor corresponds to the number of the sowing row.",
+      "ready": "Ready to write ..."
     },
     "statistic": {
       "title": "Statistic",
