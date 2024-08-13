@@ -213,9 +213,13 @@ function App(): React.JSX.Element | null {
       setMainInfo(null);
       setSystemInfo(null);
     } finally {
-      NfcManager.cancelTechnologyRequest();
-      setModalVisible(false);
+      onCancel();
     }
+  };
+
+  const onCancel = () => {
+    NfcManager.cancelTechnologyRequest();
+    setModalVisible(false);
   };
 
   return (
@@ -242,6 +246,7 @@ function App(): React.JSX.Element | null {
                 {...props}
                 NfcManager={NfcManager}
                 writeTag={writeTag}
+                handleCancel={onCancel}
                 modalVisible={modalVisible}
                 setAddress={address => {
                   setError('');
@@ -296,6 +301,8 @@ function App(): React.JSX.Element | null {
                 readTag={readTag}
                 mainInfo={mainInfo}
                 systemInfo={systemInfo}
+                handleCancel={onCancel}
+                modalVisible={modalVisible}
               />
             ) : (
               <ErrorScreen

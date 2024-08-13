@@ -18,6 +18,7 @@ export const SensorScreen = ({
   address,
   error,
   modalVisible,
+  handleCancel,
 }) => {
   const [isCyclic, setIsCyclic] = useState(false);
   const toggleSwitch = () => setIsCyclic(previousState => !previousState);
@@ -33,7 +34,11 @@ export const SensorScreen = ({
 
   return (
     <SafeAreaView style={styles.container}>
-      <ModalView text={t('screens.sensor.ready')} visible={modalVisible} />
+      <ModalView
+        text={t('screens.sensor.ready')}
+        visible={modalVisible}
+        handleCancel={handleCancel}
+      />
       <View>
         <View style={styles.wrapper}>
           <Text style={styles.subtitle}>{t('screens.sensor.newAddress')}</Text>

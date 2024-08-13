@@ -23,7 +23,8 @@
       "blockSize": "Block Size",
       "memorySizeBlocks": "Memory Size in blocks",
       "memorySizeBytes": "Memory Size in bytes",
-      "icRef": "IC ref"
+      "icRef": "IC ref",
+      "ready": "Ready to scan"
     },
     "sensor": {
       "title": "Sequence number",
@@ -34,13 +35,14 @@
       "errorTitle" : "Something went wrong!",
       "errorRecord" : "Recording failed!",
       "noteText" : "The sequence number of the sensor corresponds to the number of the sowing row.",
-      "ready": "Ready to write ..."
+      "ready": "Ready to write"
     },
     "statistic": {
       "title": "Statistic",
       "tabLabel" : "Statistic",
       "buttonRead" : "Read",
       "buttonClear" : "Clear",
+      "ready": "Ready to scan",
       "instructionTitle" : "To read seeding statistics:",
       "instruction_1" : "1. Enable NFC on your phone.",
       "instruction_2" : "2. Click the \"Read\" button.",

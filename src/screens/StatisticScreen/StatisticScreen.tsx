@@ -18,10 +18,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import RNFS from 'react-native-fs';
 import {generateHTML} from '../../utils/genarateHTML';
+import {ModalView} from "../../components";
 
 export const StatisticScreen = () => {
   const [nfcData, setNfcData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const {t} = useTranslation();
 
   const decompressedData = useBzip2Data(nfcData);
@@ -77,6 +79,8 @@ export const StatisticScreen = () => {
   };
 
   const readStatistic = async () => {
+    Platform.OS === 'android' && setModalVisible(true);
+
     try {
       await NfcManager.requestTechnology(NfcTech.Ndef);
       const tag = await NfcManager.getTag();
@@ -92,12 +96,23 @@ export const StatisticScreen = () => {
     } catch (ex) {
       await NfcManager.setAlertMessage(`Oops! ${ex}`);
     } finally {
-      NfcManager.cancelTechnologyRequest();
+      onCancel();
     }
+  };
+
+  const onCancel = () => {
+    NfcManager.cancelTechnologyRequest();
+    setModalVisible(false);
   };
 
   return (
     <SafeAreaView style={styles.container}>
+      <ModalView
+        text={t('screens.statistic.ready')}
+        visible={modalVisible}
+        handleCancel={onCancel}
+      />
+
       {!decompressedData && (
         <View style={styles.log}>
           <Text style={styles.title}>
@@ -135,14 +150,14 @@ export const StatisticScreen = () => {
       {!!nfcData && (
         <>
           <TouchableOpacity
-            style={styles.buttonDownload}
+            style={[styles.button, styles.buttonDownload]}
             onPress={downloadStatistic}>
             <MaterialIcons
               name={Platform.OS === 'android' ? 'download' : 'share'}
               style={styles.iconStyles}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonClear} onPress={clearStatistic}>
+          <TouchableOpacity style={[styles.button, styles.buttonClear]} onPress={clearStatistic}>
             <MaterialIcons name="close" style={styles.iconStyles} />
           </TouchableOpacity>
         </>
@@ -166,33 +181,25 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#4b4f58',
   },
-  buttonDownload: {
+  button: {
     opacity: 0.8,
     position: 'absolute',
+    borderColor: 'rgba(0,0,0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+    backgroundColor: '#4b4f58',
+    borderRadius: 50,
+    borderWidth: 1,
+  },
+  buttonDownload: {
     bottom: 70,
     right: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.2)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 50,
-    height: 50,
-    backgroundColor: '#4b4f58',
-    borderRadius: 50,
   },
   buttonClear: {
-    opacity: 0.8,
-    position: 'absolute',
     bottom: 10,
     right: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.2)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 50,
-    height: 50,
-    backgroundColor: '#4b4f58',
-    borderRadius: 50,
   },
   buttonText: {
     color: '#ffffff',

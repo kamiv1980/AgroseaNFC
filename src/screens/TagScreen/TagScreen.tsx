@@ -8,15 +8,29 @@ import {
 import {useTranslation} from 'react-i18next';
 import React from 'react';
 
+import {ModalView} from '../../components';
+
 const manufCode = {
   2: 'STMicroelectronics',
 };
 
-export const TagScreen = ({mainInfo, readTag, systemInfo}) => {
+export const TagScreen = ({
+  mainInfo,
+  readTag,
+  systemInfo,
+  modalVisible,
+  handleCancel,
+}) => {
   const {t} = useTranslation();
 
   return (
     <SafeAreaView style={styles.container}>
+      <ModalView
+        text={t('screens.tag.ready')}
+        visible={modalVisible}
+        handleCancel={handleCancel}
+      />
+
       {!mainInfo && !systemInfo && (
         <View style={styles.log}>
           <Text style={styles.title}>{t('screens.tag.instructionTitle')}</Text>
