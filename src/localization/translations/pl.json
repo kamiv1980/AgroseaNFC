@@ -33,7 +33,8 @@
       "cyclicRecording": "Nagrywanie cykliczne",
       "errorTitle": "Coś poszło nie tak!",
       "errorRecord": "Nagrywanie nie powiodło się!",
-      "noteText": "Numer sekwencyjny czujnika odpowiada numerowi rzędu siewu."
+      "noteText": "Numer sekwencyjny czujnika odpowiada numerowi rzędu siewu.",
+      "ready": "Gotowy do numeracji"
     },
     "statistic": {
       "title": "Statystyka",

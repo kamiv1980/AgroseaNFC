@@ -97,7 +97,6 @@ function App(): React.JSX.Element | null {
 
       let tag = await NfcManager.getTag();
       setMainInfo(tag);
-      console.log('tag', tag);
 
       const idBytes = tag.id.split(/(..)/g).filter(s => s);
       idBytes.forEach((val, i, a) => (a[i] = parseInt(val, 16)));
@@ -119,7 +118,7 @@ function App(): React.JSX.Element | null {
 
     try {
       await NfcManager.requestTechnology(NfcTech.Iso15693IOS, {
-        alertMessage: 'Ready to numbering!',
+        alertMessage: t('screens.sensor.ready'),
       });
 
       const tag = await NfcManager.getTag();
@@ -176,9 +175,7 @@ function App(): React.JSX.Element | null {
     setModalVisible(true);
 
     try {
-      await NfcManager.requestTechnology(NfcTech.NfcV, {
-        alertMessage: 'Ready to numbering!',
-      });
+      await NfcManager.requestTechnology(NfcTech.NfcV);
 
       const tag = await NfcManager.getTag();
       setMainInfo(tag);
@@ -188,13 +185,11 @@ function App(): React.JSX.Element | null {
       let blockBytes = await NfcManager.transceive([32, 32, ...idBytes, 5]);
 
       blockBytes = blockBytes.slice(1);
-      console.log('1')
 
       if (Array.isArray(blockBytes)) {
         const newBlock = blockBytes.map((el, idx) => (idx === 0 ? address : el));
 
         await NfcManager.transceive([33, 33, ...idBytes, 5, ...newBlock]);
-        console.log('2')
 
         let blockBytesForCRC = [];
         for (let i = 0; i <= 6; i++) {
@@ -204,7 +199,6 @@ function App(): React.JSX.Element | null {
 
         const crc32 = calculateCRC32(blockBytesForCRC);
         await NfcManager.transceive([33, 33, ...idBytes, 7, ...crc32]);
-        console.log('Success');
       }
 
       !!isCyclic && setAddress(prev => ++prev);

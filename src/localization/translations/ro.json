@@ -33,7 +33,8 @@
       "cyclicRecording": "Înregistrare ciclică",
       "errorTitle": "Ceva nu a mers bine!",
       "errorRecord": "Înregistrarea a eșuat!",
-      "noteText": "Numărul de secvență al senzorului corespunde numărului rândului de semănat."
+      "noteText": "Numărul de secvență al senzorului corespunde numărului rândului de semănat.",
+      "ready": "Pregătit pentru numerotare"
     },
     "statistic": {
       "title": "Statistică",

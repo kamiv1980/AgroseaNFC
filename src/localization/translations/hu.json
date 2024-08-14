@@ -33,7 +33,8 @@
       "cyclicRecording": "Ciklikus felvétel",
       "errorTitle": "Valami hiba történt!",
       "errorRecord": "A felvétel sikertelen!",
-      "noteText": "Az érzékelő sorszáma megfelel a vetési sor számának."
+      "noteText": "Az érzékelő sorszáma megfelel a vetési sor számának.",
+      "ready": "Készen áll a számozásra"
     },
     "statistic": {
       "title": "Statisztika",
