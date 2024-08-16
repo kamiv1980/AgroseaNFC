@@ -92,6 +92,8 @@ function App(): React.JSX.Element | null {
   };
 
   const readTagAndroid = async () => {
+    setModalVisible(true);
+
     try {
       await NfcManager.requestTechnology(NfcTech.NfcV);
 
@@ -109,7 +111,7 @@ function App(): React.JSX.Element | null {
       setSystemInfo(null);
     } finally {
       // stop the nfc scanning
-      NfcManager.cancelTechnologyRequest();
+      onCancel()
     }
   };
 
