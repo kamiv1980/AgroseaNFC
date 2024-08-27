@@ -84,7 +84,7 @@ function App(): React.JSX.Element | null {
       Array.isArray(blockBytes) && setAddress(blockBytes[0]);
       await NfcManager.setAlertMessage('Tag found');
     } catch (ex) {
-      await NfcManager.setAlertMessage(`Oops! ${ex}`);
+      await NfcManager.setAlertMessage(`Oops! ${ex.toString()}`);
       setMainInfo(null);
       setSystemInfo(null);
     } finally {
@@ -108,7 +108,7 @@ function App(): React.JSX.Element | null {
       const blockBytes = await NfcManager.transceive([32, 32, ...idBytes, 5]);
       Array.isArray(blockBytes) && setAddress(blockBytes[1]);
     } catch (ex) {
-      Alert.alert(`Oops! ${ex}`);
+      Alert.alert(`Oops! ${ex.toString()}`);
       setMainInfo(null);
       setSystemInfo(null);
     } finally {
@@ -164,7 +164,7 @@ function App(): React.JSX.Element | null {
       await NfcManager.setAlertMessage('Success');
       !!isCyclic && setAddress(prev => ++prev);
     } catch (ex) {
-      await NfcManager.setAlertMessage(`Oops! ${ex}`);
+      await NfcManager.setAlertMessage(`Oops! Error!`);
       setError(ex.toString());
       setMainInfo(null);
       setSystemInfo(null);
