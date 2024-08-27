@@ -53,10 +53,12 @@ function App(): React.JSX.Element | null {
   }, []);
 
   const readTag = () => {
+    setError('');
     Platform.OS === 'ios' ? readTagIOS() : readTagAndroid();
   };
 
   const writeTag = isCyclic => {
+    setError('');
     Platform.OS === 'ios' ? writeTagIOS(isCyclic) : writeTagAndroid(isCyclic);
   };
 
@@ -116,7 +118,6 @@ function App(): React.JSX.Element | null {
   };
 
   const writeTagIOS = async isCyclic => {
-    setError('');
 
     try {
       await NfcManager.requestTechnology(NfcTech.Iso15693IOS, {
@@ -164,7 +165,7 @@ function App(): React.JSX.Element | null {
       !!isCyclic && setAddress(prev => ++prev);
     } catch (ex) {
       await NfcManager.setAlertMessage(`Oops! ${ex}`);
-      setError(ex);
+      setError(ex.toString());
       setMainInfo(null);
       setSystemInfo(null);
     } finally {
@@ -173,7 +174,6 @@ function App(): React.JSX.Element | null {
   };
 
   const writeTagAndroid = async isCyclic => {
-    setError('');
     setModalVisible(true);
 
     try {
@@ -205,7 +205,7 @@ function App(): React.JSX.Element | null {
 
       !!isCyclic && setAddress(prev => ++prev);
     } catch (ex) {
-      setError(ex);
+      setError(ex.toString());
       setMainInfo(null);
       setSystemInfo(null);
     } finally {

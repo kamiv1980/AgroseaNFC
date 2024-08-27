@@ -76,6 +76,7 @@ export const SensorScreen = ({
           <>
             <Text style={styles.error}>{t('screens.sensor.errorTitle')}</Text>
             <Text style={styles.error}>{t('screens.sensor.errorRecord')}</Text>
+            <Text style={styles.error}>{error}</Text>
           </>
         ) : (
           <Image
