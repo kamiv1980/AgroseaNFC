@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: '#4b4f58',
     width: 100,
+    color: '#4b4f58',
   },
   buttonWrite: {
     marginTop: 20,
