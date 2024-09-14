@@ -191,7 +191,8 @@ function App(): React.JSX.Element | null {
       if (Array.isArray(blockBytes)) {
         const newBlock = blockBytes.map((el, idx) => (idx === 0 ? address : el));
 
-        await NfcManager.transceive([33, 33, ...idBytes, 5, ...newBlock]);
+        // await NfcManager.transceive([33, 33, ...idBytes, 5, ...newBlock]);
+        await NfcManager.transceive([0x20, 0x21, ...idBytes, 5, ...newBlock]);
 
         let blockBytesForCRC = [];
         for (let i = 0; i <= 6; i++) {
@@ -200,7 +201,8 @@ function App(): React.JSX.Element | null {
         }
 
         const crc32 = calculateCRC32(blockBytesForCRC);
-        await NfcManager.transceive([33, 33, ...idBytes, 7, ...crc32]);
+        // await NfcManager.transceive([33, 33, ...idBytes, 7, ...crc32]);
+        await NfcManager.transceive([0x20, 0x21, ...idBytes, 7, ...crc32]);
       }
 
       !!isCyclic && setAddress(prev => ++prev);
