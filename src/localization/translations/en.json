@@ -30,6 +30,7 @@
       "title": "Sequence number",
       "tabLabel" : "Sensor",
       "buttonWrite" : "Write",
+      "buttonRead" : "Read",
       "newAddress" : "New sequence number",
       "cyclicRecording" : "Cyclic recording",
       "errorTitle" : "Something went wrong!",
@@ -117,7 +118,8 @@
       "tabLabel" : "More",
       "itemSettings": "Settings",
       "itemTrial": "Get reset code",
-      "itemAbout": "About"
+      "itemAbout": "About",
+      "itemTag": "Tag information"
     },
     "settings": {
       "title": "Settings",

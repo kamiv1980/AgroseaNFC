@@ -29,6 +29,7 @@
       "title": "Număr de secvență",
       "tabLabel": "Senzor",
       "buttonWrite": "Scrie",
+      "buttonRead": "Citește",
       "newAddress": "Nou număr de secvență",
       "cyclicRecording": "Înregistrare ciclică",
       "errorTitle": "Ceva nu a mers bine!",
@@ -115,7 +116,8 @@
       "tabLabel": "Mai mult",
       "itemSettings": "Setări",
       "itemTrial": "Obține cod de resetare",
-      "itemAbout": "Despre"
+      "itemAbout": "Despre",
+      "itemTag": "Informații despre etichetă"
     },
     "settings": {
       "title": "Setări",

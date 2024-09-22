@@ -7,12 +7,13 @@ import {
   LanguageSelectScreen,
   TrialCodeScreen,
   AboutScreen,
+  TagScreen
 } from '../../screens';
 import {useTranslation} from 'react-i18next';
 
 const Stack = createNativeStackNavigator();
 
-export const MoreScreen = ({navigation}) => {
+export const MoreScreen = ({navigation, hasNfc}) => {
   const {t} = useTranslation();
 
   useFocusEffect(
@@ -47,12 +48,13 @@ export const MoreScreen = ({navigation}) => {
       }}>
       <Stack.Screen
         name="Menu"
-        component={MenuScreen}
         options={{
           title: t('screens.more.title'),
           headerBackTitle: t('screens.more.title'),
         }}
-      />
+      >
+       {props=> <MenuScreen {...props} hasNfc={hasNfc}/>}
+      </Stack.Screen>
       <Stack.Screen
         name="Settings"
         options={{
@@ -77,6 +79,14 @@ export const MoreScreen = ({navigation}) => {
         }}
         component={TrialCodeScreen}
       />
+        <Stack.Screen
+            name="TagInfo"
+            options={{
+                title: t('screens.tag.title'),
+                headerBackTitle: t('screens.more.title'),
+            }}
+            component={TagScreen}
+        />
       <Stack.Screen
         name="About"
         options={{

@@ -29,6 +29,7 @@
       "title": "Порядковий номер",
       "tabLabel": "Датчик",
       "buttonWrite": "Записати",
+      "buttonRead" : "Читати",
       "newAddress": "Новий порядковий номер",
       "cyclicRecording" : "Циклічний запис",
       "errorTitle" : "Щось пішло не так!",
@@ -76,7 +77,7 @@
       "sownHa": "Засіяно (га)",
       "notSownHa": "Не засіяно (га)",
       "unknownSownHa": "Невідомо засіяно (га)",
-      "fertilizing": "Удобрення",
+      "fertilizing": "Добрива",
       "fertilizedHa": "Удобрено (га)",
       "notFertilizedHa": "Не удобрено (га)",
       "unknownFertilizedHa": "Невідомо удобрено (га)",
@@ -94,8 +95,8 @@
       "sownPct": "Засіяно (%)",
       "notSownPct": "Не засіяно (%)",
       "unknownSownPct": "Невідомо засіяно (%)",
-      "fertilizerSensors": "Датчики удобрення",
-      "fertilizerSensorId": "Датчик удобрення",
+      "fertilizerSensors": "Датчики добрив",
+      "fertilizerSensorId": "Датчик добрив",
       "fertilizedPct": "Удобрено (%)",
       "notFertilizedPct": "Не удобрено (%)",
       "unknownFertilizedPct": "Невідомо удобрено (%)",
@@ -104,8 +105,8 @@
       "rateHighKm": "Висока норма (км)",
       "rateHighCount": "Кількість аварій вище норми",
       "workWithoutCrashControl": "Праця без контролю збоїв",
-      "liquidFertilizing": "Рідке удобрення",
-      "liquidFertilizerSensors": "Датчики рідкого удобрення",
+      "liquidFertilizing": "Рідке добриво",
+      "liquidFertilizerSensors": "Датчики рідкого добрива",
       "totalLiters": "Загальна кількість (л)",
       "rateFactLiquid": "Фактична норма (л/Га)",
       "rateTargetLiquid": "Задана норма (л/Га)"
@@ -115,7 +116,8 @@
       "tabLabel": "Більше",
       "itemSettings": "Налаштування",
       "itemTrial": "Отримати код активації",
-      "itemAbout": "Про програму"
+      "itemAbout": "Про програму",
+      "itemTag": "Інформація про мітку"
     },
     "settings": {
       "title": "Налаштування",

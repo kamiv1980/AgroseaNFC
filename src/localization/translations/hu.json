@@ -29,6 +29,7 @@
       "title": "Sorozatszám",
       "tabLabel": "Érzékelő",
       "buttonWrite": "Írás",
+      "buttonRead": "Olvas",
       "newAddress": "Új sorozatszám",
       "cyclicRecording": "Ciklikus felvétel",
       "errorTitle": "Valami hiba történt!",
@@ -115,7 +116,8 @@
       "tabLabel": "Több",
       "itemSettings": "Beállítások",
       "itemTrial": "Visszaállító kód beszerzése",
-      "itemAbout": "Névjegy"
+      "itemAbout": "Névjegy",
+      "itemTag": "Címke információ"
     },
     "settings": {
       "title": "Beállítások",

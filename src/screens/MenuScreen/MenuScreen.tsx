@@ -2,8 +2,9 @@ import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export const MenuScreen = ({navigation}) => {
+export const MenuScreen = ({navigation, hasNfc}) => {
   const {t} = useTranslation();
 
   return (
@@ -24,6 +25,15 @@ export const MenuScreen = ({navigation}) => {
         <MaterialIcons name="access-time-filled" style={styles.iconStyles} />
         <Text style={styles.textStyles}>{t('screens.more.itemTrial')}</Text>
       </TouchableOpacity>
+        {hasNfc && <TouchableOpacity
+            style={styles.touchables}
+            onPress={() => {
+                navigation.navigate('TagInfo');
+            }}>
+            <MaterialCommunityIcons name="memory" style={styles.iconStyles}/>
+            <Text style={styles.textStyles}>{t('screens.more.itemTag')}</Text>
+        </TouchableOpacity>
+        }
       <TouchableOpacity
         style={styles.touchables}
         onPress={() => {

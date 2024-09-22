@@ -29,6 +29,7 @@
       "title": "Numer sekwencji",
       "tabLabel": "Czujnik",
       "buttonWrite": "Zapisz",
+      "buttonRead": "Czytaj",
       "newAddress": "Nowy numer sekwencji",
       "cyclicRecording": "Nagrywanie cykliczne",
       "errorTitle": "Coś poszło nie tak!",
@@ -115,7 +116,8 @@
       "tabLabel": "Więcej",
       "itemSettings": "Ustawienia",
       "itemTrial": "Uzyskaj kod resetowania",
-      "itemAbout": "O programie"
+      "itemAbout": "O programie",
+      "itemTag": "Informacje o znaczniku"
     },
     "settings": {
       "title": "Ustawienia",

@@ -1,4 +1,6 @@
 import {
+  Alert,
+  Platform,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -6,7 +8,8 @@ import {
   View,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-import React from 'react';
+import React, {useState} from 'react';
+import NfcManager, {NfcTech, Nfc15693RequestFlagIOS} from 'react-native-nfc-manager';
 
 import {ModalView} from '../../components';
 
@@ -14,21 +17,71 @@ const manufCode = {
   2: 'STMicroelectronics',
 };
 
-export const TagScreen = ({
-  mainInfo,
-  readTag,
-  systemInfo,
-  modalVisible,
-  handleCancel,
-}) => {
+export const TagScreen = () => {
+  const [mainInfo, setMainInfo] = useState(null);
+  const [systemInfo, setSystemInfo] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [error, setError] = useState('');
   const {t} = useTranslation();
+
+  const readTag = () => {
+    setError('');
+    setMainInfo(null);
+    setSystemInfo(null);
+
+    Platform.OS === 'ios' ? readTagIOS() : readTagAndroid();
+  };
+
+  const readTagIOS = async () => {
+    try {
+      // register for the NFC tag with Iso15693IOS in it
+      await NfcManager.requestTechnology(NfcTech.Iso15693IOS);
+      // the resolved tag object will contain `ndefMessage` property
+      const tag = await NfcManager.getTag();
+      setMainInfo(tag);
+
+      const handler = NfcManager.iso15693HandlerIOS;
+
+      const resp = (await handler.getSystemInfo(
+          Nfc15693RequestFlagIOS.HighDataRate,
+      )) as any;
+      setSystemInfo(resp);
+      await NfcManager.setAlertMessage('Tag found');
+    } catch (ex) {
+      await NfcManager.setAlertMessage(`Oops! ${ex.toString()}`);
+    } finally {
+      // stop the nfc scanning
+      NfcManager.cancelTechnologyRequest();
+    }
+  };
+
+  const readTagAndroid = async ({NfcManager}) => {
+    setModalVisible(true);
+
+    try {
+      await NfcManager.requestTechnology(NfcTech.NfcV);
+
+      let tag = await NfcManager.getTag();
+      setMainInfo(tag);
+    } catch (ex) {
+      Alert.alert(`Oops! ${ex.toString()}`);
+    } finally {
+      // stop the nfc scanning
+      onCancel()
+    }
+  };
+
+  const onCancel = () => {
+    NfcManager.cancelTechnologyRequest();
+    setModalVisible(false);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <ModalView
         text={t('screens.tag.ready')}
         visible={modalVisible}
-        handleCancel={handleCancel}
+        handleCancel={onCancel}
       />
 
       {!mainInfo && !systemInfo && (
@@ -105,7 +158,15 @@ export const TagScreen = ({
         </View>
       )}
 
-      <TouchableOpacity style={styles.buttonRead} onPress={readTag}>
+      {!!error && (
+          <View>
+            <Text style={styles.error}>{t('screens.sensor.errorTitle')}</Text>
+            {/*<Text style={styles.error}>{t('screens.sensor.errorRecord')}</Text>*/}
+            <Text style={styles.error}>{error}</Text>
+          </View>
+      )}
+
+          <TouchableOpacity style={styles.buttonRead} onPress={readTag}>
         <Text style={styles.buttonText}>{t('screens.tag.buttonRead')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -162,5 +223,10 @@ const styles = StyleSheet.create({
   log: {
     justifyContent: 'center',
     padding: 20,
+  },
+  error: {
+    color: '#e91e63',
+    fontSize: 30,
+    textAlign:'center'
   },
 });

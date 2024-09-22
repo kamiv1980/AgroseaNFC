@@ -18,10 +18,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
 import RNFS from 'react-native-fs';
 import {generateHTML} from '../../utils/genarateHTML';
-import {ModalView} from "../../components";
+import {ModalView} from '../../components';
 
 export const StatisticScreen = () => {
-  const [nfcData, setNfcData] = useState(null);
+  const [nfcData, setNfcData] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const {t} = useTranslation();
@@ -40,18 +40,20 @@ export const StatisticScreen = () => {
     try {
       const options = {
         html: htmlString,
-        fileName: `statistic(${new Date().toLocaleString()})`,
-        directory: Platform.OS === 'android' ? 'Downloads' : 'Documents',
+        fileName: `statistic`,
+        directory: 'Documents',
         bgColor: '#FFFFFF',
       };
       const file = await RNHTMLtoPDF.convert(options);
 
       if (Platform.OS === 'ios') {
         await onShare(file.filePath);
-        await RNFS.unlink(file.filePath);
       } else {
-        Alert.alert('Success', `PDF saved to ${file.filePath}`);
+        const path = `${RNFS.DownloadDirectoryPath}/statistic.pdf`;
+        await RNFS.copyFile(file.filePath, path);
+        Alert.alert('Success', `PDF saved to ${path}`);
       }
+      await RNFS.unlink(file.filePath);
       setIsLoading(false);
     } catch (error: any) {
       Alert.alert('Error', error.message);

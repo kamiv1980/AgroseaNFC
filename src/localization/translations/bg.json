@@ -29,6 +29,7 @@
       "title": "Пореден номер",
       "tabLabel": "Сензор",
       "buttonWrite": "Запиши",
+      "buttonRead": "Прочети",
       "newAddress": "Нов пореден номер",
       "cyclicRecording": "Цикличен запис",
       "errorTitle": "Нещо се обърка!",
@@ -115,7 +116,8 @@
       "tabLabel": "Още",
       "itemSettings": "Настройки",
       "itemTrial": "Вземи код за нулиране",
-      "itemAbout": "Относно"
+      "itemAbout": "Относно",
+      "itemTag": "Информация за етикета"
     },
     "settings": {
       "title": "Настройки",
