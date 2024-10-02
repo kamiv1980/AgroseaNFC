@@ -11,7 +11,6 @@ import {useTranslation} from 'react-i18next';
 
 export const TrialCodeScreen = () => {
   const [id, setId] = useState(null);
-  const [password, setPassword] = useState('');
   const [code, setCode] = useState(null);
   const [key, setKey] = useState(null);
 
@@ -31,7 +30,6 @@ export const TrialCodeScreen = () => {
     setCode(null);
     setKey(null);
     setId(null);
-    setPassword('');
   };
 
   const handleChange = value => {
@@ -51,19 +49,10 @@ export const TrialCodeScreen = () => {
             value={id}
             keyboardType="numeric"
           />
-          <Text style={styles.title}>{t('screens.trialCode.inputPassword')}</Text>
-          <TextInput
-            autoCapitalize={'none'}
-            style={styles.input}
-            onChangeText={setPassword}
-            value={password}
-          />
           <TouchableOpacity
             style={styles.button}
             onPress={getNewKeys}
-            disabled={
-              !id || id.toString().length !== 5 || password !== 'admin'
-            }>
+            disabled={!id || id.toString().length !== 5}>
             <Text style={styles.buttonText}>{t('screens.trialCode.buttonSubmit')}</Text>
           </TouchableOpacity>
         </View>

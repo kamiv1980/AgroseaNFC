@@ -1,7 +1,13 @@
-import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import MaterialIcons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
 
 export const SettingsScreen = ({navigation}) => {
   const {t} = useTranslation();
@@ -13,8 +19,16 @@ export const SettingsScreen = ({navigation}) => {
         onPress={() => {
           navigation.navigate('Language');
         }}>
-        <MaterialIcons name="language" style={styles.iconStyles} />
+        <Ionicons name="language" style={styles.iconStyles} />
         <Text style={styles.textStyles}>{t('screens.settings.itemLanguage')}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.touchables}
+        onPress={() => {
+          navigation.navigate('Profile');
+        }}>
+        <Feather name="users" style={styles.iconStyles} />
+        <Text style={styles.textStyles}>{t('screens.settings.itemProfile')}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

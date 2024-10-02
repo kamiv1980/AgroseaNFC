@@ -7,7 +7,8 @@ import {
   LanguageSelectScreen,
   TrialCodeScreen,
   AboutScreen,
-  TagScreen
+  TagScreen,
+  ProfileSelectScreen,
 } from '../../screens';
 import {useTranslation} from 'react-i18next';
 
@@ -53,7 +54,7 @@ export const MoreScreen = ({navigation, hasNfc}) => {
           headerBackTitle: t('screens.more.title'),
         }}
       >
-       {props=> <MenuScreen {...props} hasNfc={hasNfc}/>}
+        {props => <MenuScreen {...props} hasNfc={hasNfc} />}
       </Stack.Screen>
       <Stack.Screen
         name="Settings"
@@ -72,6 +73,14 @@ export const MoreScreen = ({navigation, hasNfc}) => {
         component={LanguageSelectScreen}
       />
       <Stack.Screen
+        name="Profile"
+        options={{
+          title: t('screens.profile.title'),
+          headerBackTitle: t('screens.settings.title'),
+        }}
+        component={ProfileSelectScreen}
+      />
+      <Stack.Screen
         name="Trial"
         options={{
           title: t('screens.trialCode.title'),
@@ -79,14 +88,14 @@ export const MoreScreen = ({navigation, hasNfc}) => {
         }}
         component={TrialCodeScreen}
       />
-        <Stack.Screen
-            name="TagInfo"
-            options={{
-                title: t('screens.tag.title'),
-                headerBackTitle: t('screens.more.title'),
-            }}
-            component={TagScreen}
-        />
+      <Stack.Screen
+        name="TagInfo"
+        options={{
+          title: t('screens.tag.title'),
+          headerBackTitle: t('screens.more.title'),
+        }}
+        component={TagScreen}
+      />
       <Stack.Screen
         name="About"
         options={{

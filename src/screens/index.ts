@@ -8,3 +8,4 @@ export * from './TrialCodeScreen';
 export * from './StatisticScreen';
 export * from './AboutScreen';
 export * from './ErrorScreen';
+export * from './ProfileSelectScreen';

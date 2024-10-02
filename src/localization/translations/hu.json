@@ -1,7 +1,9 @@
 {
   "language": "Magyar",
   "common": {
-    "back": "Vissza"
+    "back": "Vissza",
+    "submit": "Beküldés",
+    "cancel": "Mégsem"
   },
   "screens": {
     "tag": {
@@ -35,7 +37,8 @@
       "errorTitle": "Valami hiba történt!",
       "errorRecord": "A felvétel sikertelen!",
       "noteText": "Az érzékelő sorszáma megfelel a vetési sor számának.",
-      "ready": "Készen áll a számozásra"
+      "ready": "Készen áll a számozásra",
+      "alertWrongValue": "Az cím értékének nagyobbnak kell lennie 0-nál"
     },
     "statistic": {
       "title": "Statisztika",
@@ -121,19 +124,24 @@
     },
     "settings": {
       "title": "Beállítások",
-      "itemLanguage": "Nyelv"
+      "itemLanguage": "Nyelv",
+      "itemProfile": "Profil"
     },
     "trialCode": {
       "title": "Visszaállító kód",
       "buttonSubmit": "Beküldés",
       "buttonReset": "Visszaállítás",
       "inputTrialCode": "Próbakulcs megadása",
-      "inputPassword": "Admin jelszó megadása",
       "titleKeyDeactivation": "Kulcs deaktiválás próbája",
       "titleKeyProlongation": "Kulcs meghosszabbítás próbája"
     },
     "language": {
       "title": "Nyelv"
+    },
+    "profile": {
+      "title": "Profil",
+      "inputPassword": "Admin jelszó megadása",
+      "errorPassword": "Hibás jelszó"
     },
     "about": {
       "title": "Névjegy",

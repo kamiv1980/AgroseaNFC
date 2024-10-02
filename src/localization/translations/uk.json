@@ -1,7 +1,9 @@
 {
   "language": "Українська",
   "common": {
-    "back": "Назад"
+    "back": "Назад",
+    "submit": "Надіслати",
+    "cancel": "Скасувати"
   },
   "screens": {
     "tag": {
@@ -35,7 +37,8 @@
       "errorTitle" : "Щось пішло не так!",
       "errorRecord" : "Помилка запису!",
       "noteText": "Номер датчика відповідає номеру посівного ряду.",
-      "ready": "Готово до нумерації"
+      "ready": "Готово до нумерації",
+      "alertWrongValue": "Значення адреси має бути більше 0"
     },
     "statistic": {
       "title": "Статистика",
@@ -121,19 +124,24 @@
     },
     "settings": {
       "title": "Налаштування",
-      "itemLanguage": "Мова"
+      "itemLanguage": "Мова",
+      "itemProfile": "Профіль"
     },
     "trialCode": {
       "title": "Код активації",
       "buttonSubmit": "Підтвердити",
       "buttonReset": "Скинути",
       "inputTrialCode": "Введіть пробний ключ",
-      "inputPassword": "Введіть пароль адміністратора",
       "titleKeyDeactivation": "Деактивація ключа",
       "titleKeyProlongation": "Продовження ключа"
     },
     "language": {
       "title": "Мова"
+    },
+    "profile": {
+      "title": "Профіль",
+      "inputPassword": "Введіть пароль адміністратора",
+      "errorPassword": "Неправильний пароль"
     },
     "about": {
       "title": "Про програму",

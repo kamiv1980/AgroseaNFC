@@ -1,7 +1,9 @@
 {
   "language": "Română",
   "common": {
-    "back": "Înapoi"
+    "back": "Înapoi",
+    "submit": "Trimite",
+    "cancel": "Anulează"
   },
   "screens": {
     "tag": {
@@ -35,7 +37,8 @@
       "errorTitle": "Ceva nu a mers bine!",
       "errorRecord": "Înregistrarea a eșuat!",
       "noteText": "Numărul de secvență al senzorului corespunde numărului rândului de semănat.",
-      "ready": "Pregătit pentru numerotare"
+      "ready": "Pregătit pentru numerotare",
+      "alertWrongValue": "Valoarea adresei trebuie să fie mai mare decât 0"
     },
     "statistic": {
       "title": "Statistică",
@@ -121,19 +124,24 @@
     },
     "settings": {
       "title": "Setări",
-      "itemLanguage": "Limbă"
+      "itemLanguage": "Limbă",
+      "itemProfile": "Profil"
     },
     "trialCode": {
       "title": "Cod de resetare",
       "buttonSubmit": "Trimite",
       "buttonReset": "Resetează",
       "inputTrialCode": "Introduceți codul de probă",
-      "inputPassword": "Introduceți parola de administrator",
       "titleKeyDeactivation": "Dezactivarea cheii",
       "titleKeyProlongation": "Prelungirea cheii"
     },
     "language": {
       "title": "Limbă"
+    },
+    "profile": {
+      "title": "Profil",
+      "inputPassword": "Introduceți parola de administrator",
+      "errorPassword": "Parolă incorectă"
     },
     "about": {
       "title": "Despre",

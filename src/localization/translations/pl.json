@@ -1,7 +1,9 @@
 {
   "language": "Polski",
   "common": {
-    "back": "Wróć"
+    "back": "Wróć",
+    "submit": "Wyślij",
+    "cancel": "Anuluj"
   },
   "screens": {
     "tag": {
@@ -35,7 +37,8 @@
       "errorTitle": "Coś poszło nie tak!",
       "errorRecord": "Nagrywanie nie powiodło się!",
       "noteText": "Numer sekwencyjny czujnika odpowiada numerowi rzędu siewu.",
-      "ready": "Gotowy do numeracji"
+      "ready": "Gotowy do numeracji",
+      "alertWrongValue": "Wartość adresu musi być większa niż 0"
     },
     "statistic": {
       "title": "Statystyka",
@@ -121,19 +124,24 @@
     },
     "settings": {
       "title": "Ustawienia",
-      "itemLanguage": "Język"
+      "itemLanguage": "Język",
+      "itemProfile": "Profil"
     },
     "trialCode": {
       "title": "Kod resetowania",
       "buttonSubmit": "Zatwierdź",
       "buttonReset": "Resetuj",
       "inputTrialCode": "Wprowadź klucz próbny",
-      "inputPassword": "Wprowadź hasło administratora",
       "titleKeyDeactivation": "Dezaktywacja klucza",
       "titleKeyProlongation": "Przedłużenie klucza"
     },
     "language": {
       "title": "Język"
+    },
+    "profile": {
+      "title": "Profil",
+      "inputPassword": "Wprowadź hasło administratora",
+      "errorPassword": "Niepoprawne hasło"
     },
     "about": {
       "title": "O programie",

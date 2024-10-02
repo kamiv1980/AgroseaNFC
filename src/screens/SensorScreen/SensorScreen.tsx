@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  Alert,
   Image,
   PixelRatio,
   Platform,
@@ -49,6 +50,10 @@ export const SensorScreen = () => {
   };
 
   const writeTag = isCyclic => {
+    if (address <= 0) {
+      Alert.alert(t('screens.sensor.alertWrongValue'));
+      return;
+    }
     setError('');
     setLog('');
     Platform.OS === 'ios' ? writeTagIOS(isCyclic) : writeTagAndroid(isCyclic);

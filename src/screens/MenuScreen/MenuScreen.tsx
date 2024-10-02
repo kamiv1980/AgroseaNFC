@@ -1,11 +1,13 @@
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {ProfileContext} from '../../context/ProfileContextMangement';
 
 export const MenuScreen = ({navigation, hasNfc}) => {
   const {t} = useTranslation();
+  const {profile} = useContext(ProfileContext);
 
   return (
     <SafeAreaView>
@@ -17,23 +19,26 @@ export const MenuScreen = ({navigation, hasNfc}) => {
         <MaterialIcons name="settings" style={styles.iconStyles} />
         <Text style={styles.textStyles}>{t('screens.more.itemSettings')}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.touchables}
-        onPress={() => {
-          navigation.navigate('Trial');
-        }}>
-        <MaterialIcons name="access-time-filled" style={styles.iconStyles} />
-        <Text style={styles.textStyles}>{t('screens.more.itemTrial')}</Text>
-      </TouchableOpacity>
-        {hasNfc && <TouchableOpacity
-            style={styles.touchables}
-            onPress={() => {
-                navigation.navigate('TagInfo');
-            }}>
-            <MaterialCommunityIcons name="memory" style={styles.iconStyles}/>
-            <Text style={styles.textStyles}>{t('screens.more.itemTag')}</Text>
+      {profile === 'admin' && (
+        <TouchableOpacity
+          style={styles.touchables}
+          onPress={() => {
+            navigation.navigate('Trial');
+          }}>
+          <MaterialIcons name="access-time-filled" style={styles.iconStyles} />
+          <Text style={styles.textStyles}>{t('screens.more.itemTrial')}</Text>
         </TouchableOpacity>
-        }
+      )}
+      {hasNfc && (
+        <TouchableOpacity
+          style={styles.touchables}
+          onPress={() => {
+            navigation.navigate('TagInfo');
+          }}>
+          <MaterialCommunityIcons name="memory" style={styles.iconStyles} />
+          <Text style={styles.textStyles}>{t('screens.more.itemTag')}</Text>
+        </TouchableOpacity>
+      )}
       <TouchableOpacity
         style={styles.touchables}
         onPress={() => {

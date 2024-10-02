@@ -1,7 +1,9 @@
 {
   "language": "Български",
   "common": {
-    "back": "Назад"
+    "back": "Назад",
+    "submit": "Изпрати",
+    "cancel": "Отказ"
   },
   "screens": {
     "tag": {
@@ -35,7 +37,8 @@
       "errorTitle": "Нещо се обърка!",
       "errorRecord": "Записът не успя!",
       "noteText": "Последователният номер на сензора съответства на номера на сеитбения ред.",
-      "ready": "Готово за номериране"
+      "ready": "Готово за номериране",
+      "alertWrongValue": "Стойността на адреса трябва да бъде по-голяма от 0"
     },
     "statistic": {
       "title": "Статистика",
@@ -121,19 +124,24 @@
     },
     "settings": {
       "title": "Настройки",
-      "itemLanguage": "Език"
+      "itemLanguage": "Език",
+      "itemProfile": "Профил"
     },
     "trialCode": {
       "title": "Код за нулиране",
       "buttonSubmit": "Изпрати",
       "buttonReset": "Нулиране",
       "inputTrialCode": "Въведете пробен ключ",
-      "inputPassword": "Въведете администраторска парола",
       "titleKeyDeactivation": "Деактивиране на ключа",
       "titleKeyProlongation": "Удължаване на ключа"
     },
     "language": {
       "title": "Език"
+    },
+    "profile": {
+      "title": "Профил",
+      "inputPassword": "Въведете администраторска парола",
+      "errorPassword": "Неправилна парола"
     },
     "about": {
       "title": "Относно",

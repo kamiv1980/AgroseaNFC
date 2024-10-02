@@ -1,7 +1,9 @@
 {
   "language": "English",
   "common": {
-    "back": "Back"
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel"
   },
   "screens": {
     "tag": {
@@ -36,7 +38,8 @@
       "errorTitle" : "Something went wrong!",
       "errorRecord" : "Recording failed!",
       "noteText" : "The sequence number of the sensor corresponds to the number of the sowing row.",
-      "ready": "Ready to numbering"
+      "ready": "Ready to numbering",
+      "alertWrongValue": "The value of the address must be greater than 0"
     },
     "statistic": {
       "title": "Statistic",
@@ -123,19 +126,24 @@
     },
     "settings": {
       "title": "Settings",
-      "itemLanguage": "Language"
+      "itemLanguage": "Language",
+      "itemProfile": "Profile"
     },
     "trialCode": {
       "title": "Reset Code",
       "buttonSubmit" : "Submit",
       "buttonReset" : "Reset",
       "inputTrialCode" : "Enter trial key",
-      "inputPassword" : "Enter admin password",
       "titleKeyDeactivation" : "Key deactivation trial",
       "titleKeyProlongation" : "Key prolongation trial"
     },
     "language": {
       "title": "Language"
+    },
+    "profile": {
+      "title": "Profile",
+      "inputPassword" : "Enter admin password",
+      "errorPassword" : "Incorrect password"
     },
     "about": {
       "title": "About",

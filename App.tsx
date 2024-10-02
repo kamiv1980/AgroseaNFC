@@ -13,6 +13,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import {useTranslation} from 'react-i18next';
+import {ProfileContextProvider} from "./src/context/ProfileContextMangement";
 
 const Tab = createBottomTabNavigator();
 
@@ -42,70 +43,72 @@ function App(): React.JSX.Element | null {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarActiveTintColor: '#e91e63',
-          tabBarInactiveTintColor: '#333333',
-          tabBarStyle: {backgroundColor: '#f0b400'},
-          headerStyle: {backgroundColor: '#f0b400'},
-          headerTitleAlign: 'center',
-        }}>
-        <Tab.Screen
-          name={t('screens.sensor.title')}
-          options={{
-            tabBarLabel: t('screens.sensor.tabLabel'),
-            tabBarIcon: ({color, size}) => (
-              <MaterialIcons name="sensors" color={color} size={size} />
-            ),
+    <ProfileContextProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarActiveTintColor: '#e91e63',
+            tabBarInactiveTintColor: '#333333',
+            tabBarStyle: {backgroundColor: '#f0b400'},
+            headerStyle: {backgroundColor: '#f0b400'},
+            headerTitleAlign: 'center',
           }}>
-          {props =>
-            hasNfc ? (
-              <SensorScreen {...props}/>
-            ) : (
-              <ErrorScreen
-                {...props}
-                text={t('screens.error.nfcNotSupported')}
-              />
-            )
-          }
-        </Tab.Screen>
-        <Tab.Screen
-          name={t('screens.statistic.title')}
-          options={{
-            tabBarLabel: t('screens.statistic.tabLabel'),
-            tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons
-                name="book-information-variant"
-                color={color}
-                size={size}
-              />
-            ),
-          }}>
-          {props =>
-            hasNfc ? (
-              <StatisticScreen {...props} />
-            ) : (
-              <ErrorScreen
-                {...props}
-                text={t('screens.error.nfcNotSupported')}
-              />
-            )
-          }
-        </Tab.Screen>
-        <Tab.Screen
-          name="More"
-          options={{
-            headerShown: false,
-            tabBarLabel: t('screens.more.tabLabel'),
-            tabBarIcon: ({color, size}) => (
-              <Feather name="more-horizontal" color={color} size={size} />
-            ),
-          }}>
-          {props => <MoreScreen {...props} hasNfc={hasNfc} />}
-        </Tab.Screen>
-      </Tab.Navigator>
-    </NavigationContainer>
+          <Tab.Screen
+            name={t('screens.sensor.title')}
+            options={{
+              tabBarLabel: t('screens.sensor.tabLabel'),
+              tabBarIcon: ({color, size}) => (
+                <MaterialIcons name="sensors" color={color} size={size} />
+              ),
+            }}>
+            {props =>
+              hasNfc ? (
+                <SensorScreen {...props} />
+              ) : (
+                <ErrorScreen
+                  {...props}
+                  text={t('screens.error.nfcNotSupported')}
+                />
+              )
+            }
+          </Tab.Screen>
+          <Tab.Screen
+            name={t('screens.statistic.title')}
+            options={{
+              tabBarLabel: t('screens.statistic.tabLabel'),
+              tabBarIcon: ({color, size}) => (
+                <MaterialCommunityIcons
+                  name="book-information-variant"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}>
+            {props =>
+              hasNfc ? (
+                <StatisticScreen {...props} />
+              ) : (
+                <ErrorScreen
+                  {...props}
+                  text={t('screens.error.nfcNotSupported')}
+                />
+              )
+            }
+          </Tab.Screen>
+          <Tab.Screen
+            name="More"
+            options={{
+              headerShown: false,
+              tabBarLabel: t('screens.more.tabLabel'),
+              tabBarIcon: ({color, size}) => (
+                <Feather name="more-horizontal" color={color} size={size} />
+              ),
+            }}>
+            {props => <MoreScreen {...props} hasNfc={hasNfc} />}
+          </Tab.Screen>
+        </Tab.Navigator>
+      </NavigationContainer>
+    </ProfileContextProvider>
   );
 }
 
