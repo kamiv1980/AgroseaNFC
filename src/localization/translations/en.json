@@ -147,10 +147,10 @@
     },
     "about": {
       "title": "About",
-      "description_1": "This application is designed by Agrosea GmbH.",
+      "description_1": "This application is designed by Agriwelt GmbH.",
       "description_2": "It allows you to number the sowing sensors, read and view sowing statistics and perform various service operations.",
       "version": "App version 1.0.0",
-      "terms" : "© AGROSEA - 2024. All rights reserved"
+      "terms" : "© AGRIWELT - 2024. All rights reserved"
     },
     "error": {
       "nfcNotSupported": "NFC not supported"

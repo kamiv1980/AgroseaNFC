@@ -93,7 +93,7 @@ export const ProfileSelectScreen = () => {
               <Pressable
                 style={styles.button}
                 onPress={handleSubmit}>
-                <Text style={styles.buttonText}>{t('common.ok')}</Text>
+                <Text style={styles.buttonText}>{t('common.submit')}</Text>
               </Pressable>
             </View>
           </View>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
-    padding: 35,
+    padding: 15,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {

@@ -145,10 +145,10 @@
     },
     "about": {
       "title": "Despre",
-      "description_1": "Această aplicație este proiectată de Agrosea GmbH.",
+      "description_1": "Această aplicație este proiectată de Agriwelt GmbH.",
       "description_2": "Permite numerotarea senzorilor de semănat, citirea și vizualizarea statisticilor de semănat și efectuarea diverselor operațiuni de service.",
       "version": "Versiunea aplicației 1.0.0",
-      "terms": "© AGROSEA - 2024. Toate drepturile rezervate"
+      "terms": "© AGRIWELT - 2024. Toate drepturile rezervate"
     },
     "error": {
       "nfcNotSupported": "NFC nu este suportat"

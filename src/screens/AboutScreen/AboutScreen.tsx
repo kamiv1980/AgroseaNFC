@@ -9,7 +9,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {URLButton} from '../../components';
 
-const companydURL = 'https://www.agrosea.eu/';
+const companydURL = 'http://www.agriwelt.com';
 
 export const AboutScreen = () => {
   const {t} = useTranslation();
@@ -20,7 +20,7 @@ export const AboutScreen = () => {
       <Text style={styles.text}>{t('screens.about.description_2')}</Text>
       <Text style={styles.text}>{t('screens.about.version')}</Text>
       <Image style={styles.logo} source={require('../../assets/logo.png')} />
-      <URLButton url={companydURL}>www.agrosea.eu</URLButton>
+      <URLButton url={companydURL}>www.agriwelt.com</URLButton>
       <Text style={styles.term}>{t('screens.about.terms')}</Text>
 
     </SafeAreaView>

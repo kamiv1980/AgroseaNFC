@@ -145,10 +145,10 @@
     },
     "about": {
       "title": "O programie",
-      "description_1": "Ta aplikacja została zaprojektowana przez Agrosea GmbH.",
+      "description_1": "Ta aplikacja została zaprojektowana przez Agriwelt GmbH.",
       "description_2": "Pozwala numerować czujniki siewu, odczytywać i przeglądać statystyki siewu oraz wykonywać różne operacje serwisowe.",
       "version": "Wersja aplikacji 1.0.0",
-      "terms": "© AGROSEA - 2024. Wszelkie prawa zastrzeżone"
+      "terms": "© AGRIWELT - 2024. Wszelkie prawa zastrzeżone"
     },
     "error": {
       "nfcNotSupported": "NFC nie jest obsługiwane"
