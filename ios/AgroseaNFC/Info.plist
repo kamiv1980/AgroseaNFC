@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key> UIFileSharingEnabled</key>
-    <true/>
-    <key>LSSupportsOpeningDocumentsInPlace</key>
-    <true/>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
+	<key> UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -28,8 +28,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>NFCReaderUsageDescription</key>
 	<string>Reading NFC with react native</string>
 	<key>NSAppTransportSecurity</key>
@@ -61,7 +59,9 @@
 		<string>Zocial.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Croprow</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -79,16 +79,16 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>com.apple.developer.nfc.readersession.felica.systemcodes</key>
-    <array>
-      <string>8005</string>
-      <string>8008</string>
-      <string>0003</string>
-      <string>fe00</string>
-      <string>90b7</string>
-      <string>927a</string>
-      <string>12FC</string>
-      <string>86a7</string>
-    </array>
+	<array>
+		<string>8005</string>
+		<string>8008</string>
+		<string>0003</string>
+		<string>fe00</string>
+		<string>90b7</string>
+		<string>927a</string>
+		<string>12FC</string>
+		<string>86a7</string>
+	</array>
 	<key>com.apple.developer.nfc.readersession.formats</key>
 	<array>
 		<string>NDEF</string>
